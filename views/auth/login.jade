@@ -1,0 +1,11 @@
+extends ../layout
+
+block content
+  h1 Login
+  form(action="/auth/login" method="POST")
+    h3 Please Enter Login Details
+    input(type="submit" value="login" name="login")
+    br
+    br
+    h3 Don't have an account? click below to signup
+    a(name="signup" href="/auth/signup") Sign up

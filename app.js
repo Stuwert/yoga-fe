@@ -32,6 +32,19 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.session())
 
+
+// Middleware to test if logged in.
+function isLoggedIn(req,res,next) {
+  if(req.isAuthenticated()) {
+    return next();
+  }
+  else {
+    res.redirect('/')
+  }
+
+}
+
+
 app.use('/', routes);
 app.use('/users', users);
 app.use('/auth', authorization)
