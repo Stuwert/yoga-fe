@@ -1,4 +1,3 @@
-# yoga-builder
-An app that allows users to create yoga sequences as playlists.
+# Readme
 
-Presently no modules are implemented, and I did not add any structure to routes, views, etc. Just a baby app.
+This is the front end of the yoga app development project.
