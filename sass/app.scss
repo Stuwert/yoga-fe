@@ -1,4 +1,5 @@
 @import 'colorsandfonts';
+@import 'buttons';
 
 *{
   box-sizing: border-box;
@@ -35,22 +36,6 @@ h1{
 
 p{
   font-family: $body-font;
-}
-
-
-
-p{
-  position: fixed;
-  width: 180px;
-  height: 100px;
-  background-color: grey;
-  margin: 0;
-}
-i{
-  color: white;
-  position: fixed;
-  top: 10px;
-  left: 65px;
 }
 
 .sequence {
@@ -150,21 +135,10 @@ nav .close, .gu-mirror .close{
     color: $dark-blue;
     width: 50%;
     margin-left: 25%;
+    margin-bottom: 20px;
   }
-}
-
-button{
-  position: fixed;
-  bottom: 15px;
-  right: 15px;
-  z-index: 2;
-  height: 50px;
-  width: 200px;
-  background-color: $light-blue;
-  border-radius: 15px;
-  border: none;
-  font-family: $body-font;
-  font-size: 25px;
-  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55)
-
+  .buttons{
+    width: 50%;
+    margin-left: 25%;
+  }
 }
