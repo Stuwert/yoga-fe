@@ -5,3 +5,18 @@
 @font-face {
   font-family: 'LeagueSpartan-Bold';
   src: url("LeagueSpartan-Bold.otf"); }
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 30px;
+  color: white; }
+
+h2 {
+  font-size: 25px; }
+
+a {
+  color: white; }
+
+p, a, h1, h2, h3, button, label, input {
+  font-family: "Fontin"; }

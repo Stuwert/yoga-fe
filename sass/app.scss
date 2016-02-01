@@ -26,17 +26,7 @@ header{
   margin: 0;
 }
 
-h1{
-  margin: 0;
-  text-align: center;
-  font-size: 30px;
-  font-family: $body-font;
-  color: white;
-}
 
-p{
-  font-family: $body-font;
-}
 
 .sequence {
   background-color: $dark-blue;
@@ -63,6 +53,21 @@ main{
       width: 200px;
       height: 200px;
       margin: 35px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      *{
+        display: none;
+      }
+      h2, a{
+        display: inline;
+      }
+      img{
+        width: 120px;
+        height: 120px;
+        display: inline;
+      }
     }
     select{
       width: 100%;
@@ -92,9 +97,49 @@ form{
     height: 250px;
     margin-top: 50px;
     margin-left: 400px;
+    img{
+      width: 200px;
+      height: 200px;
+      margin: 25px;
+    }
+    h2, .categories, .timer{
+      position: absolute;
+      left: -350px;
+    }
+    a{
+      color: black;
+    }
+    h2{
+      top: 10px;
+    }
+    .categories{
+      em{
+        text-decoration: underline;
+      }
+      top: 50px;
+      font-size: 18px;
+    }
+    .timer{
+      top: 120px;
+      width: 60px;
+      input{
+        width: 100%;
+        height: 40px;
+        font-size: 25px;
+      }
+    }
   }
   .sequence:first-of-type{
     align-self: flex-start;
+  }
+  .buttons{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 2;
+    button{
+      flex-grow: 3;
+    }
   }
 }
 

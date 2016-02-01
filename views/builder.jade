@@ -14,12 +14,23 @@ block content
       select 
         while j <= 5
           option(val=j)= j++
-      - var i = 1
-      while i <= 5
-        div.sequence(id=i++)
+      each result in results 
+        div.sequence(id=result.id)
           p.close X
           h2
+            a(href='/poses/' + results.pose_id)= result.pose_name
+          div.categories
+            p 
+              em Categories
+            each category in result.category
+              p= category
+          div.timer
+            label Length
+            input(type='text')
+          img(src='http://placehold.it/200x200')
+          
     form(action='/sequence' method='post')
-      button Save Sequence
+      div.buttons
+        button Save Sequence
     
       
