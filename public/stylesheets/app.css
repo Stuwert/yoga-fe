@@ -1,84 +1,103 @@
-*{
-  box-sizing: border-box;
-}
+@font-face {
+  font-family: 'Fontin';
+  src: url("Fontin-Regular.otf"); }
 
-body{
-  width: 950px;
-}
+@font-face {
+  font-family: 'LeagueSpartan-Bold';
+  src: url("LeagueSpartan-Bold.otf"); }
 
-nav{
-  width: 250px;
+* {
+  box-sizing: border-box; }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #E2DBBE;
+  padding: 0;
+  margin: 0; }
+
+header {
+  padding: 20px 0;
+  background-color: #A0A083;
+  width: 100%;
+  margin: 0; }
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "LeagueSpartan-Bold";
+  color: white; }
+
+p {
+  font-family: "Fontin"; }
+
+nav {
+  width: 33%;
+  background-color: #A0B9C6;
   overflow-y: scroll;
-  background-color: grey;
   position: relative;
-  height: 95vh;
-  float: left;
-}
-p{
+  height: 90vh;
+  float: left; }
+  nav .sequence {
+    width: 200px;
+    height: 200px;
+    margin: 35px auto; }
+  nav select {
+    width: 100%;
+    position: absolute;
+    top: 25px; }
+    nav select option {
+      font-size: 16px;
+      text-align: center; }
+
+p {
   position: fixed;
   width: 180px;
   height: 100px;
   background-color: grey;
-  margin: 0;
-}
-i{
+  margin: 0; }
+
+i {
   color: white;
   position: fixed;
   top: 10px;
-  left: 65px;
-}
-
-nav .sequence{
-  width: 200px;
-  height: 200px;
-  margin: 25px;
-  margin-left: 20px;
-}
+  left: 65px; }
 
 .sequence {
-  background-color: black;
+  background-color: #28536B;
   position: relative;
-}
+  border-radius: 15px;
+  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
 
-nav .sequence:first-of-type{
-  margin-top: 100px;
-}
+nav .sequence:first-of-type {
+  margin-top: 100px; }
 
-main{
-  width: 700px;
-  height: 95vh;
-  background-color: red;
+main {
+  width: 66%;
+  height: 90vh;
   float: left;
   align-items: center;
-  overflow-y: scroll;
-}
+  overflow-y: scroll; }
+  main .sequence {
+    width: 350px;
+    height: 350px;
+    margin-top: 50px;
+    margin-left: 200px; }
+  main .sequence:first-of-type {
+    align-self: flex-start; }
 
-main .sequence {
-  width: 450px;
-  height: 450px;
-  margin-top: 100px;
-  margin-left: 200px;
-}
-
-main.sequence:first-of-type{
-  align-self: flex-start;
-}
-
-p.close{
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  font-size: 30px;
-  font-weight: bold;
+p.close {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  font-size: 60px;
+  color: white;
+  font-family: "LeagueSpartan-Bold";
   text-align: center;
   padding-top: 5px;
-  border-radius: 25px;
   position: absolute;
   top: -20px;
-  right: -20px;
-}
+  right: -30px; }
 
-
-nav .close, .gu-mirror .close{
-  visibility: hidden;
-}
+nav .close, .gu-mirror .close {
+  visibility: hidden; }

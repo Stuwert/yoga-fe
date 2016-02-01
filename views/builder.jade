@@ -1,0 +1,20 @@
+extends layout
+  
+block title 
+  title Stuart's sequence Builder
+  
+block content
+  header
+    h1 Building Insert Name
+  nav 
+    - var j = 1
+    select 
+      while j <= 5
+        option(val=j)= j++
+    - var i = 1
+    while i <= 5
+      div.sequence(id=i++)
+        p.close X
+  main
+    
+      
