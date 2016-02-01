@@ -14,6 +14,12 @@ router.get('/login', function(req, res, next) {
 
 });
 
+router.post('/login', function(req,res,next){
+  passport.use()
+  res.redirect('/users/profile')
+})
+
+
 router.get('/signup', function(req,res,next) {
   res.render('auth/signup')
 })
