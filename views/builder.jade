@@ -5,17 +5,32 @@ block title
   
 block content
   header
-    h1 Building Insert Name
-  main
+    h1 New Sequence
     nav 
+      a Profile
+  main
+    nav.elements 
       - var j = 1
       select 
         while j <= 5
           option(val=j)= j++
-      - var i = 1
-      while i <= 5
-        div.sequence(id=i++)
+      each result in results 
+        div.sequence(id=result.id)
           p.close X
-    section
+          h2
+            a(href='/poses/' + results.pose_id)= result.pose_name
+          div.categories
+            p 
+              em Categories
+            each category in result.category
+              p= category
+          div.timer
+            label Length
+            input(type='text')
+          img(src='http://placehold.it/200x200')
+          
+    form(action='/sequence' method='post')
+      div.buttons
+        button Save Sequence
     
       

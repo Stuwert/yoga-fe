@@ -1,9 +1,14 @@
 @import 'colorsandfonts';
+@import 'buttons';
 
 *{
   box-sizing: border-box;
 }
 
+html{
+  height: 100vh;
+  margin: 0;
+}
 
 body{
   width: 100vw;
@@ -16,58 +21,12 @@ body{
 header{
   padding: 20px 0;
   background-color: $dark-brown;
+  height: 10%;
   width: 100%;
   margin: 0;
 }
 
-h1{
-  margin: 0;
-  text-align: center;
-  font-family: $body-font;
-  color: white;
-}
 
-p{
-  font-family: $body-font;
-}
-
-nav{
-  width: 33%;
-  overflow-y: scroll;
-  position: relative;
-  float: left;
-  height: 100%;
-  background-color: $light-blue;
-  .sequence{
-    width: 200px;
-    height: 200px;
-    margin: 35px auto;
-  }
-  select{
-    width: 100%;
-    position: absolute;
-    top: 25px;
-    option{
-      font-size: 16px;
-      text-align: center;
-
-    }
-  }
-}
-
-p{
-  position: fixed;
-  width: 180px;
-  height: 100px;
-  background-color: grey;
-  margin: 0;
-}
-i{
-  color: white;
-  position: fixed;
-  top: 10px;
-  left: 65px;
-}
 
 .sequence {
   background-color: $dark-blue;
@@ -80,38 +39,122 @@ nav .sequence:first-of-type{
   margin-top: 100px;
 }
 main{
-  height: 90vh;
+  height: 90%;
+  margin: 0;
+  nav{
+    width: 33%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    float: left;
+    height: 100%;
+    background-color: $light-blue;
+    .sequence{
+      width: 200px;
+      height: 200px;
+      margin: 35px auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      *{
+        display: none;
+      }
+      h2, a{
+        display: inline;
+      }
+      img{
+        width: 120px;
+        height: 120px;
+        display: inline;
+      }
+    }
+    select{
+      width: 100%;
+      position: absolute;
+      top: 25px;
+      option{
+        font-size: 16px;
+        text-align: center;
+
+      }
+    }
+  }
+
 }
 
-section{
+form{
   width: 66%;
-  height: 90vh;
+  height: 100%;
   float: left;
   align-items: center;
   overflow-y: scroll;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 80px;
   .sequence {
-    width: 350px;
-    height: 350px;
+    width: 250px;
+    height: 250px;
     margin-top: 50px;
-    margin-left: 200px;
+    margin-left: 400px;
+    img{
+      width: 200px;
+      height: 200px;
+      margin: 25px;
+    }
+    h2, .categories, .timer{
+      position: absolute;
+      left: -350px;
+    }
+    a{
+      color: black;
+    }
+    h2{
+      top: 10px;
+    }
+    .categories{
+      em{
+        text-decoration: underline;
+      }
+      top: 50px;
+      font-size: 18px;
+    }
+    .timer{
+      top: 120px;
+      width: 60px;
+      input{
+        width: 100%;
+        height: 40px;
+        font-size: 25px;
+      }
+    }
   }
   .sequence:first-of-type{
     align-self: flex-start;
   }
+  .buttons{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 2;
+    button{
+      flex-grow: 3;
+    }
+  }
 }
 
 p.close{
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: transparent;
-  font-size: 60px;
+  font-size: 40px;
   color: white;
   font-family: $title-font;
   text-align: center;
   padding-top: 5px;
   position: absolute;
-  top: -20px;
-  right: -30px;
+  top: 0px;
+  right: -5px;
 }
 
 
@@ -135,6 +178,11 @@ nav .close, .gu-mirror .close{
     text-align: center;
     font-size: 30px;
     color: $dark-blue;
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 20px;
+  }
+  .buttons{
     width: 50%;
     margin-left: 25%;
   }
