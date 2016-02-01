@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var db = require('./db/knex.js');
 var session = require('express-session');
+var flash = require('connect-flash')
 
 // require('./config/passport')(passport); // pass passport for configuration
 
@@ -46,6 +47,7 @@ function isLoggedIn(req,res,next) {
 
 
 app.use('/', routes);
+app.use('/users', isLoggedIn)
 app.use('/users', users);
 app.use('/auth', authorization)
 

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt   = require('bcrypt');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -18,12 +19,28 @@ router.get('/signup', function(req,res,next) {
 })
 
 router.post('/signup', function(req,res,next){
-  console.log('Form Submitting');
-  res.redirect('/auth/')
+  var pass = req.body.password
+
+
+// Hashes password
+var salt = bcrypt.genSaltSync(10);
+var hash = bcrypt.hashSync(req.body.password, salt);
+
+// Need to create a req.user
+
+
+/* Function to compare B.crypt
+var p = bcrypt.compareSync(req.body.password , hash)
+*/
+
+
+// Redirect user to their profile page
+  res.redirect('/users/profile')
 })
 
 
 router.get('/logout', function(req,res,next){
+  req.logout()
   res.render('auth/logout')
 })
 
