@@ -1,0 +1,84 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  width: 950px;
+}
+
+nav{
+  width: 250px;
+  overflow-y: scroll;
+  background-color: grey;
+  position: relative;
+  height: 95vh;
+  float: left;
+}
+p{
+  position: fixed;
+  width: 180px;
+  height: 100px;
+  background-color: grey;
+  margin: 0;
+}
+i{
+  color: white;
+  position: fixed;
+  top: 10px;
+  left: 65px;
+}
+
+nav .sequence{
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+  margin-left: 20px;
+}
+
+.sequence {
+  background-color: black;
+  position: relative;
+}
+
+nav .sequence:first-of-type{
+  margin-top: 100px;
+}
+
+main{
+  width: 700px;
+  height: 95vh;
+  background-color: red;
+  float: left;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+main .sequence {
+  width: 450px;
+  height: 450px;
+  margin-top: 100px;
+  margin-left: 200px;
+}
+
+main.sequence:first-of-type{
+  align-self: flex-start;
+}
+
+p.close{
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 5px;
+  border-radius: 25px;
+  position: absolute;
+  top: -20px;
+  right: -20px;
+}
+
+
+nav .close, .gu-mirror .close{
+  visibility: hidden;
+}
