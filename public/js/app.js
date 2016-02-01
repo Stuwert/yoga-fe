@@ -1,9 +1,9 @@
-dragula([document.querySelector('nav'), document.querySelector('main')],{
+dragula([document.querySelector('nav'), document.querySelector('section')],{
   copy: function(el, target){
-    return el.parentElement.tagName === 'MAIN' ? false : true
+    return el.parentElement.tagName === 'SECTION' ? false : true
   },
   accepts: function(el, target){
-    return target.tagName === 'MAIN' ? true : false;
+    return target.tagName === 'SECTION' ? true : false;
   },
   removeOnSpill: true,
 

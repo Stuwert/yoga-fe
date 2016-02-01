@@ -33,11 +33,11 @@ p{
 
 nav{
   width: 33%;
-  background-color: $light-blue;
   overflow-y: scroll;
   position: relative;
-  height: 90vh;
   float: left;
+  height: 100%;
+  background-color: $light-blue;
   .sequence{
     width: 200px;
     height: 200px;
@@ -54,6 +54,7 @@ nav{
     }
   }
 }
+
 p{
   position: fixed;
   width: 180px;
@@ -78,8 +79,11 @@ i{
 nav .sequence:first-of-type{
   margin-top: 100px;
 }
-
 main{
+  height: 90vh;
+}
+
+section{
   width: 66%;
   height: 90vh;
   float: left;

@@ -33,11 +33,11 @@ p {
 
 nav {
   width: 33%;
-  background-color: #A0B9C6;
   overflow-y: scroll;
   position: relative;
-  height: 90vh;
-  float: left; }
+  float: left;
+  height: 100%;
+  background-color: #A0B9C6; }
   nav .sequence {
     width: 200px;
     height: 200px;
@@ -73,17 +73,20 @@ nav .sequence:first-of-type {
   margin-top: 100px; }
 
 main {
+  height: 90vh; }
+
+section {
   width: 66%;
   height: 90vh;
   float: left;
   align-items: center;
   overflow-y: scroll; }
-  main .sequence {
+  section .sequence {
     width: 350px;
     height: 350px;
     margin-top: 50px;
     margin-left: 200px; }
-  main .sequence:first-of-type {
+  section .sequence:first-of-type {
     align-self: flex-start; }
 
 p.close {
