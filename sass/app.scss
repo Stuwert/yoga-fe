@@ -23,7 +23,7 @@ header{
 h1{
   margin: 0;
   text-align: center;
-  font-family: $title-font;
+  font-family: $body-font;
   color: white;
 }
 
@@ -113,4 +113,25 @@ p.close{
 
 nav .close, .gu-mirror .close{
   visibility: hidden;
+}
+
+.splash{
+  text-align: center;
+  width: 100%;
+  h1{
+    color: $dark-blue;
+    font-family: $title-font;
+    font-size: 150px;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 30vh;
+  }
+  p{
+    background-color: transparent;
+    text-align: center;
+    font-size: 30px;
+    color: $dark-blue;
+    width: 50%;
+    margin-left: 25%;
+  }
 }

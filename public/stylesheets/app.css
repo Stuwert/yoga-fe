@@ -25,7 +25,7 @@ header {
 h1 {
   margin: 0;
   text-align: center;
-  font-family: "LeagueSpartan-Bold";
+  font-family: "Fontin";
   color: white; }
 
 p {
@@ -101,3 +101,21 @@ p.close {
 
 nav .close, .gu-mirror .close {
   visibility: hidden; }
+
+.splash {
+  text-align: center;
+  width: 100%; }
+  .splash h1 {
+    color: #28536B;
+    font-family: "LeagueSpartan-Bold";
+    font-size: 150px;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 30vh; }
+  .splash p {
+    background-color: transparent;
+    text-align: center;
+    font-size: 30px;
+    color: #28536B;
+    width: 50%;
+    margin-left: 25%; }
