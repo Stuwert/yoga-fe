@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+html{
+  height: 100vh;
+  margin: 0;
+}
 
 body{
   width: 100vw;
@@ -16,6 +20,7 @@ body{
 header{
   padding: 20px 0;
   background-color: $dark-brown;
+  height: 10%;
   width: 100%;
   margin: 0;
 }
@@ -23,6 +28,7 @@ header{
 h1{
   margin: 0;
   text-align: center;
+  font-size: 30px;
   font-family: $body-font;
   color: white;
 }
@@ -34,6 +40,7 @@ p{
 nav{
   width: 33%;
   overflow-y: scroll;
+  overflow-x: hidden;
   position: relative;
   float: left;
   height: 100%;
@@ -80,12 +87,13 @@ nav .sequence:first-of-type{
   margin-top: 100px;
 }
 main{
-  height: 90vh;
+  height: 90%;
+  margin: 0;
 }
 
 section{
   width: 66%;
-  height: 90vh;
+  height: 100%;
   float: left;
   align-items: center;
   overflow-y: scroll;
