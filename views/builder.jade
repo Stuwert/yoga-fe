@@ -5,9 +5,11 @@ block title
   
 block content
   header
-    h1 Building Insert Name
-  main
+    h1 New Sequence
     nav 
+      a Profile
+  main
+    nav.elements 
       - var j = 1
       select 
         while j <= 5
@@ -16,6 +18,8 @@ block content
       while i <= 5
         div.sequence(id=i++)
           p.close X
-    section
+          h2
+    form(action='/sequence' method='post')
+      button Save Sequence
     
       

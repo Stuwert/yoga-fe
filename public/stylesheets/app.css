@@ -37,26 +37,6 @@ h1 {
 p {
   font-family: "Fontin"; }
 
-nav {
-  width: 33%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  position: relative;
-  float: left;
-  height: 100%;
-  background-color: #A0B9C6; }
-  nav .sequence {
-    width: 200px;
-    height: 200px;
-    margin: 35px auto; }
-  nav select {
-    width: 100%;
-    position: absolute;
-    top: 25px; }
-    nav select option {
-      font-size: 16px;
-      text-align: center; }
-
 p {
   position: fixed;
   width: 180px;
@@ -82,33 +62,55 @@ nav .sequence:first-of-type {
 main {
   height: 90%;
   margin: 0; }
+  main nav {
+    width: 33%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    float: left;
+    height: 100%;
+    background-color: #A0B9C6; }
+    main nav .sequence {
+      width: 200px;
+      height: 200px;
+      margin: 35px auto; }
+    main nav select {
+      width: 100%;
+      position: absolute;
+      top: 25px; }
+      main nav select option {
+        font-size: 16px;
+        text-align: center; }
 
-section {
+form {
   width: 66%;
   height: 100%;
   float: left;
   align-items: center;
-  overflow-y: scroll; }
-  section .sequence {
-    width: 350px;
-    height: 350px;
+  overflow-y: scroll;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 80px; }
+  form .sequence {
+    width: 250px;
+    height: 250px;
     margin-top: 50px;
-    margin-left: 200px; }
-  section .sequence:first-of-type {
+    margin-left: 400px; }
+  form .sequence:first-of-type {
     align-self: flex-start; }
 
 p.close {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: transparent;
-  font-size: 60px;
+  font-size: 40px;
   color: white;
   font-family: "LeagueSpartan-Bold";
   text-align: center;
   padding-top: 5px;
   position: absolute;
-  top: -20px;
-  right: -30px; }
+  top: 0px;
+  right: -5px; }
 
 nav .close, .gu-mirror .close {
   visibility: hidden; }
@@ -130,3 +132,17 @@ nav .close, .gu-mirror .close {
     color: #28536B;
     width: 50%;
     margin-left: 25%; }
+
+button {
+  position: fixed;
+  bottom: 15px;
+  right: 15px;
+  z-index: 2;
+  height: 50px;
+  width: 200px;
+  background-color: #A0B9C6;
+  border-radius: 15px;
+  border: none;
+  font-family: "Fontin";
+  font-size: 25px;
+  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
