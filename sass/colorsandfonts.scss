@@ -1,0 +1,18 @@
+$light-brown: #E2DBBE;
+$dark-brown: #A0A083;
+$dark-blue: #28536B;
+$light-blue: #A0B9C6;
+$slate-grey: #798478;
+
+@font-face{
+  font-family: 'Fontin';
+  src: url('Fontin-Regular.otf');
+}
+
+@font-face{
+  font-family: 'LeagueSpartan-Bold';
+  src: url('LeagueSpartan-Bold.otf');
+}
+
+$title-font: 'LeagueSpartan-Bold';
+$body-font: 'Fontin';
