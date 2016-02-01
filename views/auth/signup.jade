@@ -1,28 +1,19 @@
 extends ../layout
 
+block title
+  title Sign-up
+
 block content
-  h1 Signup
-  form.form(action="/auth/signup" method="POST")
-    label(for="name") Name
-    br
-    input(type="name" name="name")
-    br
-    br
-    label(for="email") Email
-    br
-    input(type="email" name="email")
-    br
-    br
-    label(for="username") Username
-    br
-    input(type="text" name="username")
-    br
-    br
-    label(for="password" name="password") Password
-    br
-    input(type="text" name="password")
-    br
-    br
-    input(type="submit" value="login" name="login")
-    br
-    br
+  header
+    h1 Signup
+  main
+    form.form(action="/auth/signup" method="POST")
+      label(for="name") Name
+      input(type="name" name="name")
+      label(for="email") Email
+      input(type="email" name="email")
+      label(for="username") Username
+      input(type="text" name="username")
+      label(for="password" name="password") Password
+      input(type="text" name="password")
+      button Sign-up
