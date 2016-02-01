@@ -195,7 +195,8 @@ nav .close, .gu-mirror .close {
     font-size: 150px;
     width: 75%;
     margin-left: 12.5%;
-    margin-top: 30vh; }
+    margin-top: 30vh;
+    font-style: italic; }
   .splash p {
     background-color: transparent;
     text-align: center;
