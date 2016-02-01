@@ -17,6 +17,11 @@ router.get('/signup', function(req,res,next) {
   res.render('auth/signup')
 })
 
+router.post('/signup', function(req,res,next){
+  console.log('Form Submitting');
+  res.redirect('/auth/')
+})
+
 
 router.get('/logout', function(req,res,next){
   res.render('auth/logout')
