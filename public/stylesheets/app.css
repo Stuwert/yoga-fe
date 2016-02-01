@@ -123,7 +123,7 @@ main {
         font-size: 16px;
         text-align: center; }
 
-form {
+form.builder {
   width: 66%;
   height: 100%;
   float: left;
@@ -132,42 +132,42 @@ form {
   position: relative;
   padding-top: 30px;
   padding-bottom: 80px; }
-  form .sequence {
+  form.builder .sequence {
     width: 250px;
     height: 250px;
     margin-top: 50px;
     margin-left: 400px; }
-    form .sequence img {
+    form.builder .sequence img {
       width: 200px;
       height: 200px;
       margin: 25px; }
-    form .sequence h2, form .sequence .categories, form .sequence .timer {
+    form.builder .sequence h2, form.builder .sequence .categories, form.builder .sequence .timer {
       position: absolute;
       left: -350px; }
-    form .sequence a {
+    form.builder .sequence a {
       color: black; }
-    form .sequence h2 {
+    form.builder .sequence h2 {
       top: 10px; }
-    form .sequence .categories {
+    form.builder .sequence .categories {
       top: 50px;
       font-size: 18px; }
-      form .sequence .categories em {
+      form.builder .sequence .categories em {
         text-decoration: underline; }
-    form .sequence .timer {
+    form.builder .sequence .timer {
       top: 120px;
       width: 60px; }
-      form .sequence .timer input {
+      form.builder .sequence .timer input {
         width: 100%;
         height: 40px;
         font-size: 25px; }
-  form .sequence:first-of-type {
+  form.builder .sequence:first-of-type {
     align-self: flex-start; }
-  form .buttons {
+  form.builder .buttons {
     position: fixed;
     bottom: 15px;
     right: 15px;
     z-index: 2; }
-    form .buttons button {
+    form.builder .buttons button {
       flex-grow: 3; }
 
 p.close {
@@ -208,3 +208,30 @@ nav .close, .gu-mirror .close {
   .splash .buttons {
     width: 50%;
     margin-left: 25%; }
+
+form.form {
+  margin: 20px auto;
+  height: 400px;
+  width: 300px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  border: 10px solid #A0B9C6;
+  border-radius: 15px;
+  background-color: white; }
+  form.form p, form.form label {
+    color: #A0A083; }
+  form.form input {
+    width: 75%;
+    border: 1px solid black;
+    height: 20px;
+    font-size: 16px; }
+  form.form button {
+    font-size: 16px; }
+  form.form .buttons {
+    width: 50%; }
+    form.form .buttons button {
+      width: 100%; }

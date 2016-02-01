@@ -30,6 +30,5 @@ node_modules
 npm-debug.log
 .env
 
-
 # No need for pre-compiled sass
 sass
