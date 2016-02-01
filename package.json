@@ -24,5 +24,11 @@
     "pg": "^4.4.4",
     "pouchdb": "^5.2.1",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.6",
+    "gulp-sass": "^2.1.1"
   }
 }
