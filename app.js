@@ -12,6 +12,7 @@ var session = require('express-session');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var builder = require('./routes/builder');
 var authorization = require('./routes/authorization')
 
 var app = express();
@@ -48,6 +49,7 @@ function isLoggedIn(req,res,next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/auth', authorization)
+app.use('/builder', builder)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'Fontin';
+  src: url("Fontin-Regular.otf"); }
+
+@font-face {
+  font-family: 'LeagueSpartan-Bold';
+  src: url("LeagueSpartan-Bold.otf"); }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: #E2DBBE;
+  padding: 0;
+  margin: 0; }
+
+header {
+  padding: 20px 0;
+  background-color: #A0A083;
+  width: 100%;
+  margin: 0; }
+
+h1 {
+  margin: 0;
+  text-align: center;
+  font-family: "Fontin";
+  color: white; }
+
+p {
+  font-family: "Fontin"; }
+
+nav {
+  width: 33%;
+  overflow-y: scroll;
+  position: relative;
+  float: left;
+  height: 100%;
+  background-color: #A0B9C6; }
+  nav .sequence {
+    width: 200px;
+    height: 200px;
+    margin: 35px auto; }
+  nav select {
+    width: 100%;
+    position: absolute;
+    top: 25px; }
+    nav select option {
+      font-size: 16px;
+      text-align: center; }
+
+p {
+  position: fixed;
+  width: 180px;
+  height: 100px;
+  background-color: grey;
+  margin: 0; }
+
+i {
+  color: white;
+  position: fixed;
+  top: 10px;
+  left: 65px; }
+
+.sequence {
+  background-color: #28536B;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
+
+nav .sequence:first-of-type {
+  margin-top: 100px; }
+
+main {
+  height: 90vh; }
+
+section {
+  width: 66%;
+  height: 90vh;
+  float: left;
+  align-items: center;
+  overflow-y: scroll; }
+  section .sequence {
+    width: 350px;
+    height: 350px;
+    margin-top: 50px;
+    margin-left: 200px; }
+  section .sequence:first-of-type {
+    align-self: flex-start; }
+
+p.close {
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  font-size: 60px;
+  color: white;
+  font-family: "LeagueSpartan-Bold";
+  text-align: center;
+  padding-top: 5px;
+  position: absolute;
+  top: -20px;
+  right: -30px; }
+
+nav .close, .gu-mirror .close {
+  visibility: hidden; }
+
+.splash {
+  text-align: center;
+  width: 100%; }
+  .splash h1 {
+    color: #28536B;
+    font-family: "LeagueSpartan-Bold";
+    font-size: 150px;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 30vh; }
+  .splash p {
+    background-color: transparent;
+    text-align: center;
+    font-size: 30px;
+    color: #28536B;
+    width: 50%;
+    margin-left: 25%; }
