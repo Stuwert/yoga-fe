@@ -8,6 +8,7 @@ var passport = require('passport');
 var db = require('./db/knex.js');
 var session = require('express-session');
 var flash = require('connect-flash')
+var passconfig = require('./config/passport.js')
 
 // require('./config/passport')(passport); // pass passport for configuration
 
@@ -23,7 +24,7 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-//app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
+app.use(session({ secret: 'secret secret' })); // session secret
 app.use(passport.initialize())
 app.use(passport.session()); // persistent login sessions
 app.use(logger('dev'));
