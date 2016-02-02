@@ -3,9 +3,25 @@ var router = express.Router();
 
 var results = require('../tmp/results')
 
-/* GET home page. */
-router.get('/:user_id/builder/new', function(req, res, next) {
+/* GET new builder page. */
+router.get('/:username/builder/new', function(req, res, next) {
   res.render('builder', {results: results.results});
 });
+
+/*GET builder edit page */
+router.get('/:username/builder/:id', function(req, res, next){
+  res.render('builder', {results: results.results})
+})
+
+
+/*Create a new sequence*/
+router.post('/:username/builder', function(req, res, next){
+  res.send('It worked!')
+})
+
+/*Edit an existing sequence*/
+router.post('/:username/builder/:id', function(req, res, next){
+  res.send('It worked!')
+})
 
 module.exports = router;
