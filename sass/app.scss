@@ -221,3 +221,40 @@ form.form{
     }
   }
 }
+
+.user{
+  .userInfo{
+    width: 65%;
+    height: 200px;
+    background-color: black;
+    margin-left: 17.5%;
+    margin-top: 75px;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    img{
+      border-radius: 50%;
+      height: 150px;
+      width: 150px;
+    }
+    .info{
+      height: 80%;
+      width: 300px;
+      background-color: white;
+    }
+  }
+  .favoriteSequences{
+    margin-left: 17.5%;
+  }
+  .personalSequences{
+    margin-left: 2%;
+  }
+  .box{
+    background-color: black;
+    margin-top: 20px;
+    float: left;
+    width: 31.5%;
+    height: 600px;
+  }
+}

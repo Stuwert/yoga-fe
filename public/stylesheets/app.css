@@ -235,3 +235,35 @@ form.form {
     width: 50%; }
     form.form .buttons button {
       width: 100%; }
+
+.user .userInfo {
+  width: 65%;
+  height: 200px;
+  background-color: black;
+  margin-left: 17.5%;
+  margin-top: 75px;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: space-around; }
+  .user .userInfo img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px; }
+  .user .userInfo .info {
+    height: 80%;
+    width: 300px;
+    background-color: white; }
+
+.user .favoriteSequences {
+  margin-left: 17.5%; }
+
+.user .personalSequences {
+  margin-left: 2%; }
+
+.user .box {
+  background-color: black;
+  margin-top: 20px;
+  float: left;
+  width: 31.5%;
+  height: 600px; }

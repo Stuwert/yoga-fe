@@ -49,7 +49,7 @@ function isLoggedIn(req,res,next) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/auth', authorization)
-app.use('/builder', builder)
+app.use('/users', builder)
 app.use('/poses', poses)
 
 // catch 404 and forward to error handler

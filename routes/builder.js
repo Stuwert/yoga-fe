@@ -4,7 +4,7 @@ var router = express.Router();
 var results = require('../tmp/results')
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/:user_id/builder/new', function(req, res, next) {
   res.render('builder', {results: results.results});
 });
 
