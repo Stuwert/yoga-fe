@@ -41,10 +41,16 @@ router.post('/login', function(req, res, next) {
     if (!user) { return res.redirect('/auth/login'); }
     req.logIn(user, function(err) {
       if (err) { return next(err); }
-      return res.redirect('/users/profile/' + user.usernamed);
+      return res.redirect('/users/profile/' + user.username);
     });
   })(req, res, next);
 });
+
+
+app.get('/auth/facebook',
+  passport.authenticate('facebook', {authType: 'rerequest', scope: ['user_friends', 'manage_pages'] }));
+
+
 
 router.get('/signup', function(req,res,next) {
 

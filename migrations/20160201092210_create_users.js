@@ -5,8 +5,12 @@ exports.up = function(knex, Promise) {
   table.string('first_name');
   table.string('last_name');
   table.string('email');
-  table.string('usernamed');
+  table.string('username');
   table.string('password');
+  table.string('image')
+  table.string('speciality')
+  table.string('studio')
+  table.text('bio')
 })
 }
 

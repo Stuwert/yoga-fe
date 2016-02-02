@@ -7,6 +7,23 @@ function users() {
   return knex('users')
 }
 
+passport.use('facebook', new FacebookStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback"
+  },
+  function(accessToken, refreshToken, profile, cb) {
+    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
+      return cb(err, user);
+    });
+  }
+));
+
+
+
+
+
+
 passport.use('local', new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
@@ -18,7 +35,7 @@ passport.use('local', new LocalStrategy({
   // 2. Is password good?
   // 3. Put user object into req.user
   function(req, username, password, done) {
-    users().select().where('usernamed', username).first()
+    users().select().where('username', username).first()
       .then(function(results){
       if(!results) {
         return done(err,false)
