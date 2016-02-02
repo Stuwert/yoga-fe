@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var knex = require('../db/knex');
 
 var results = require('../tmp/results')
 
@@ -23,5 +24,9 @@ router.post('/:username/builder', function(req, res, next){
 router.post('/:username/builder/:id', function(req, res, next){
   res.send('It worked!')
 })
+
+function Sequences(){
+  return knex('sequences');
+}
 
 module.exports = router;

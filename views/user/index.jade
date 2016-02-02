@@ -1,34 +1,35 @@
 extends ../layout
 
 block title
-  title= name
+  title= user.user_name
 
 block content
   header
-    h1= name
+    h1= user.first_name + " "  + user.last_name + "'s Profile"
   main.user
     div.userInfo
       img(src='http://placehold.it/200x200')
       div.info
-        p= "Location: " + location
-        p= "Specialty: " + specialty
+        p= "Location: " + user.city + ', ' + user.state
+        p= "Specialty: " + user.specialty
         ul
           li Interests
-          each interest in interests
+          each interest in user.interests
             li= interest
     div.favoriteSequences.box
       h2 Favorite Sequences
-      each sequence in favorites
-        div.saved
-          h4= sequence.creator
-      div.buttons
-        button
-          a(href='/sequences/all') All Sequences
+      if user.favorites 
+        each sequence in user.favorites
+          div.saved
+            h4= sequence.creator
+        div.buttons
+          button
+            a(href='/sequences/all') All Sequences
     div.personalSequences.box
       h2 My Sequences
       each sequence in sequences
         div.saved
-          h4= sequence.name
+          h4= sequence.sequence_name
           a(href='/users/' + user_name + '/builder/' + sequence.id) Edit
       div.buttons
         button
