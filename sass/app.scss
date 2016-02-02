@@ -13,7 +13,7 @@ html{
 body{
   width: 100vw;
   height: 100vh;
-  background-color: $light-brown;
+  background-image: url('/img/halftone/halftone.png');
   padding: 0;
   margin: 0;
 }
@@ -32,7 +32,7 @@ header{
   background-color: $dark-blue;
   position: relative;
   border-radius: 15px;
-  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55)
+  box-shadow: $default-boxshadow;
 }
 
 nav .sequence:first-of-type{
@@ -226,7 +226,9 @@ form.form{
   .userInfo{
     width: 65%;
     height: 200px;
-    background-color: black;
+    background-color: $dark-brown;
+    border-radius: 15px;
+    box-shadow: $default-boxshadow;
     margin-left: 17.5%;
     margin-top: 75px;
     display: flex;
@@ -250,11 +252,40 @@ form.form{
   .personalSequences{
     margin-left: 2%;
   }
+  .saved{
+    width: 100%;
+    height: 100px;
+    background-color: $dark-brown;
+    border-radius: 15px;
+    margin: 20px 0;
+    box-shadow: $default-boxshadow;
+    position: relative;
+    a{
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
   .box{
-    background-color: black;
     margin-top: 20px;
     float: left;
     width: 31.5%;
     height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .buttons{
+      width: 50%;
+      height: 30px;
+      button{
+        font-size: 16px;
+        width: 100%;
+      }
+    }
+  }
+  h4{
+    margin: 10px;
+    color: $light-brown;
+    font-size: 20px;
   }
 }

@@ -3,6 +3,7 @@ $dark-brown: #A0A083;
 $dark-blue: #28536B;
 $light-blue: #A0B9C6;
 $slate-grey: #798478;
+$default-boxshadow:  5px 5px 2px 2px rgba(40, 40, 40, 0.55);
 
 @font-face{
   font-family: 'Fontin';
@@ -33,6 +34,6 @@ a{
   color: white;
 }
 
-p, a, h1, h2, h3, button, label, input{
+p, a, h1, h2, h3, h4, button, label, input{
   font-family: $body-font;
 }

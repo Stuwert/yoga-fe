@@ -1,15 +1,33 @@
 extends ../layout
 
 block title
-  title User Name
+  title= name
 
 block content
   header
-    h1 User Name
+    h1= name
   main.user
     div.userInfo
       img(src='http://placehold.it/200x200')
       div.info
+        p= location
+        p= specialty
+        ul
+          each interest in interests
+            li= interest
     div.favoriteSequences.box
+      each sequence in favorites
+        div.saved
+          h4= sequence.creator
+      div.buttons
+        button
+          a(href='/sequences/all') All Sequences
     div.personalSequences.box
+      each sequence in sequences
+        div.saved
+          h4= sequence.name
+          a(href='/users/' + user_name + '/builder/' + sequence.id) Edit
+      div.buttons
+        button
+          a(href='/users/' + user_name + '/builder/new') New Sequence
     

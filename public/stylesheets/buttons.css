@@ -18,7 +18,7 @@ h2 {
 a {
   color: white; }
 
-p, a, h1, h2, h3, button, label, input {
+p, a, h1, h2, h3, h4, button, label, input {
   font-family: "Fontin"; }
 
 .buttons {
