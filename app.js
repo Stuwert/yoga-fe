@@ -24,31 +24,32 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(session({ secret: 'secret secret' })); // session secret
 app.use(passport.initialize())
 app.use(passport.session()); // persistent login sessions
+app.use(session({ secret: 'secret secret' })); // session secret
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(passport.session())
+
 
 
 // Middleware to test if logged in.
-function isLoggedIn(req,res,next) {
-  if(req.isAuthenticated()) {
-    return next();
-  }
-  else {
-    res.redirect('/')
-  }
-
-}
+// function isLoggedIn(req,res,next) {
+//
+//   if(req.user) {
+//     return next();
+//   }
+//   else {
+//     res.redirect('/')
+//   }
+//
+// }
 
 
 app.use('/', routes);
-app.use('/users', isLoggedIn)
+// app.use('/users', isLoggedIn)
 app.use('/users', users);
 app.use('/auth', authorization)
 

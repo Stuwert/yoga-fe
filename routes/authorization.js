@@ -4,7 +4,7 @@ var bcrypt   = require('bcrypt');
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
 var flash = require('connect-flash')
-var passconfig = require('../config/passport.js')
+var passconfig = require('../config/passport')
 var knex = require('../db/knex.js')
 /* GET home page. */
 
@@ -24,8 +24,27 @@ router.get('/login', function(req, res, next) {
 
 });
 
-router.post('/login', passport.authenticate('local', { successRedirect: '/users/profile'}))
+// router.post('/login',
+// passport.authenticate('local', function(err, user, info) {
+//     if (err) { return next(err); }
+//     if (!user) { return res.redirect('/auth/login'); }
+//     req.logIn(user, function(err) {
+//       if (err) { return next(err); }
+//       return res.redirect('/users/profile');
+//     });
+//   })(req, res, next);
+// // });
 
+router.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.redirect('/auth/login'); }
+    req.logIn(user, function(err) {
+      if (err) { return next(err); }
+      return res.redirect('/users/profile/' + user.usernamed);
+    });
+  })(req, res, next);
+});
 
 router.get('/signup', function(req,res,next) {
 
