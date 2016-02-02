@@ -1,7 +1,29 @@
 extends ../layout
 
 block title
-  title Pose title
+  title= pose.pose_name
   
 block content
-  h1 Pose Name
+  header
+    h1= pose.pose_name
+    a(href='/poses') All poses 
+  main.pose
+    img(src='http://placehold.it/300x300')
+    h2= pose.sanskrit_name
+    div.transalt
+      h3 Translations and Alt Names
+        each translation in pose.translation
+          p= translation
+        each altname in pose.alt_name
+          p= altname 
+    div.descriptions 
+      p= pose.difficulty
+      each description in pose.description 
+        p= description
+      p= pose.benefits
+    div.related.descriptions
+      - var i = 1
+      while i < 5
+        div.box(id= i++)
+           a Linky  
+    
