@@ -3,15 +3,16 @@ var router = express.Router();
 var knex = require('../db/knex');
 
 var results = require('../tmp/results')
+var categories = require('../db/categories')
 
 /* GET new builder page. */
 router.get('/:username/builder/new', function(req, res, next) {
-  res.render('builder', {results: results.results});
+  res.render('builder', {results: results.results, categories: categories});
 });
 
 /*GET builder edit page */
 router.get('/:username/builder/:id', function(req, res, next){
-  res.render('builder', {results: results.results})
+  res.render('builder', {results: results.results, categories: categories})
 })
 
 

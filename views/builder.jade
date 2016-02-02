@@ -11,9 +11,9 @@ block content
   main
     nav.elements 
       - var j = 1
-      select 
-        while j <= 5
-          option(val=j)= j++
+      select
+        each category in categories
+          option(value=category.id)= category.name
       each result in results 
         div.sequence(id=result.id)
           p.close X
