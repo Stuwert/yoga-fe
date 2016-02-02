@@ -37,6 +37,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.session())
 
 
+app.use('/', routes);
+// app.use('/users', isLoggedIn)
+app.use('/auth', authorization)
+app.use('/poses', poses)
+
 // Middleware to test if logged in.
 function isLoggedIn(req,res,next) {
   if(req.isAuthenticated()) {
@@ -47,12 +52,9 @@ function isLoggedIn(req,res,next) {
   }
 }
 
-app.use('/', routes);
-app.use('/users', isLoggedIn)
 app.use('/users', users);
-app.use('/auth', authorization)
-app.use('/users', builder)
-app.use('/poses', poses)
+app.use('/users', builder);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
