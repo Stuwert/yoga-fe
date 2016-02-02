@@ -248,6 +248,9 @@ form.form {
   align-items: center;
   flex-wrap: nowrap;
   justify-content: space-around; }
+  .user .userInfo * {
+    color: white;
+    font-size: 18px; }
   .user .userInfo img {
     border-radius: 50%;
     height: 150px;
@@ -255,7 +258,11 @@ form.form {
   .user .userInfo .info {
     height: 80%;
     width: 300px;
-    background-color: white; }
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: right; }
 
 .user .favoriteSequences {
   margin-left: 17.5%; }

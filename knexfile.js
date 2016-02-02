@@ -9,10 +9,10 @@ module.exports = {
 
   production: {
     client: 'pg',
-    connection: process.env.DATABASE_URL + '?ssl=true'
+    connection: process.env.PRODUCTION_DATABASE_URL + '?ssl=true'
   },
   staging: {
     client: 'pg',
-    connection: process.env.DATABASE_URL + '?ssl=true'
+    connection: process.env.STAGING_DATABASE_URL + '?ssl=true'
   }
 };

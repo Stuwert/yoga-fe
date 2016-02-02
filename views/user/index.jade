@@ -10,12 +10,14 @@ block content
     div.userInfo
       img(src='http://placehold.it/200x200')
       div.info
-        p= location
-        p= specialty
+        p= "Location: " + location
+        p= "Specialty: " + specialty
         ul
+          li Interests
           each interest in interests
             li= interest
     div.favoriteSequences.box
+      h2 Favorite Sequences
       each sequence in favorites
         div.saved
           h4= sequence.creator
@@ -23,6 +25,7 @@ block content
         button
           a(href='/sequences/all') All Sequences
     div.personalSequences.box
+      h2 My Sequences
       each sequence in sequences
         div.saved
           h4= sequence.name
