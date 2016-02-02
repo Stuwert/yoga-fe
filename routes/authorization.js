@@ -13,31 +13,21 @@ function users() {
   return knex('users')
 }
 
-router.get('/', function(req, res, next) {
-
-  res.render('auth/signupLanding')
-
-});
 router.get('/login', function(req, res, next) {
-
   res.render('auth/login')
-
 });
 
-router.post('/login', passport.authenticate('local', { successRedirect: '/users/profile'}))
+router.post('/login', /*passport.authenticate('local', {  failureRedirect: '/'}),*/ function(req, res, next){
+  res.redirect('/users/' + req.body.username)
+})
 
 
 router.get('/signup', function(req,res,next) {
-
   res.render('auth/signup')
 })
 
 router.post('/signup', function(req,res,next){
-
-
 // Need to create a req.user
-
-
 /* Function to compare B.crypt
 var p = bcrypt.compareSync(req.body.password , hash)
 */
