@@ -45,7 +45,6 @@ function isLoggedIn(req,res,next) {
   else {
     res.redirect('/')
   }
-
 }
 
 app.use('/', routes);
