@@ -2,7 +2,7 @@ loadCategories(posecategories);
 
 $('.elements').on('click', 'h2', function(){
   if($(this).parent().hasClass('category')){
-    $.when(categoryCall($(this).html())).done(categoryReturn).fail(fail);
+    $.when(categoryCall($(this).html())).done(poseReturn).fail(fail);
   }else if($(this).parent().hasClass('sequence')){
     //Do a sequence thing
   }else{
@@ -31,15 +31,17 @@ var allPoseCall = function(){
 }
 
 function poseReturn(results){
-  results.forEach(function(item){
-    newPose(item.id, item.pose_name)
-  })
+  console.log(results);
+  // results.forEach(function(item){
+  //   newPose(item.id, item.pose_name)
+  // })
 }
 
 
 var categoryCall = function(value){
+  console.log(value);
   return $.ajax({
-    url: 'https://young-shelf-28645.herokuapp.com/api/poses?category=' + value,
+    url: 'https://young-shelf-28645.herokuapp.com/api/poses/cat?category=' + value,
     dataType: 'JSON',
     method: 'GET'
   })
