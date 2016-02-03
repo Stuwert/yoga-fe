@@ -1,12 +1,26 @@
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
+var GoogleStrategy = require('passport-google').Strategy;
 var knex = require('../db/knex.js')
 var bcrypt = require('bcrypt')
 
 function users() {
   return knex('users')
 }
+
+passport.use('google', new GoogleStrategy({
+    clientID: process.env.FACEBOOK_APP_ID,
+    clientSecret: process.env.FACEBOOK_APP_SECRET,
+    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    profileFields: ['id', 'displayName', 'photos', 'email']
+  },
+  function(accessToken, refreshToken, profile, done) {
+
+    console.log("Google Auth Done");
+    return done(null, profile);
+  }
+));
 
 passport.use('facebook', new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
@@ -16,7 +30,7 @@ passport.use('facebook', new FacebookStrategy({
   },
   function(accessToken, refreshToken, profile, done) {
 
-    console.log("Auth Done");
+    console.log("Facebook Auth Done");
     return done(null, profile);
   }
 ));
@@ -61,6 +75,7 @@ passport.use('local', new LocalStrategy({
 passport.serializeUser(function(user, done) {
  // later this will be where you selectively send to the browser an identifier for your user,
  // like their primary key from the database, or their ID from linkedin
+ console.log(user._json.picture.data.url);
   done(null, user);
 });
 
