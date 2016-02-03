@@ -18,21 +18,19 @@ block content
             each interest in user.interests
               li= interest
     div.favoriteSequences.box
-      h2 Favorite Sequences
+      h4 Favorite Sequences
       if user.favorites 
         each sequence in user.favorites
           div.saved
             h4= sequence.creator
-        div.buttons
-          button
-            a(href='/sequences/all') All Sequences
+        button
+          a(href='/sequences/all') All Sequences
     div.personalSequences.box
-      h2 My Sequences
+      h4 My Sequences
       each sequence in sequences
         div.saved
           h4= sequence.sequence_name
           a(href='/users/' + user.username + '/builder/' + sequence.id) Edit
-      div.buttons
-        button
-          a(href='/users/' + user.username + '/builder/new') New Sequence
+      button
+        a(href='/users/' + user.username + '/builder/new') New Sequence
     

@@ -1,3 +1,82 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+button {
+  background-color: #8980F5; }
+
+.sequence, .pose, .category {
+  background-color: #8499B1;
+  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
+
+header {
+  background-color: #49306B; }
+  header a {
+    color: #DEE7E7; }
+
+.elements {
+  background-color: #CFBCDF; }
+
+.form {
+  border: 5px solid #49306B;
+  background-color: white; }
+
+h1 {
+  color: #DEE7E7; }
+
+button a {
+  color: #DEE7E7; }
+
+.splash h1, .splash p {
+  color: #11B6C3; }
+
 @font-face {
   font-family: 'Fontin';
   src: url("Fontin-Regular.otf"); }
@@ -7,42 +86,32 @@
   src: url("LeagueSpartan-Bold.otf"); }
 
 h1 {
-  margin: 0;
   text-align: center;
-  font-size: 30px;
-  color: white; }
-
-h2 {
-  font-size: 25px; }
-
-a {
-  color: white; }
-
-p, a, h1, h2, h3, h4, button, label, input {
-  font-family: "Fontin"; }
-
-@font-face {
-  font-family: 'Fontin';
-  src: url("Fontin-Regular.otf"); }
-
-@font-face {
-  font-family: 'LeagueSpartan-Bold';
-  src: url("LeagueSpartan-Bold.otf"); }
+  margin: 0;
+  font-family: 'LeagueSpartan-Bold'; }
 
 h1 {
-  margin: 0;
-  text-align: center;
-  font-size: 30px;
-  color: white; }
+  font-size: 40px; }
+
+p, button, label, input, h2, h3, h4, h5, h6, ul, li, a {
+  font-family: "Fontin";
+  font-size: 16.66667px;
+  color: black; }
 
 h2 {
-  font-size: 25px; }
+  font-size: 33.33333px; }
 
-a {
-  color: white; }
+h3 {
+  font-size: 26.66667px; }
 
-p, a, h1, h2, h3, h4, button, label, input {
-  font-family: "Fontin"; }
+h4 {
+  font-size: 20px; }
+
+h5 {
+  font-size: 13.33333px; }
+
+h6 {
+  font-size: 6.66667px; }
 
 .buttons {
   display: flex;
@@ -50,79 +119,98 @@ p, a, h1, h2, h3, h4, button, label, input {
   justify-content: space-between; }
 
 button {
-  width: 45%;
-  background-color: #A0B9C6;
+  width: 200px;
+  height: 40px;
+  margin: 10px;
   border-radius: 15px;
   border: none;
-  font-family: "Fontin";
-  font-size: 25px;
   box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
 
-* {
-  box-sizing: border-box; }
+form.form {
+  margin: 20px auto;
+  width: 375px;
+  height: 450px;
+  justify-content: center;
+  justify-content: space-around;
+  border-radius: 15px; }
+  form.form h2, form.form h3, form.form p {
+    color: black;
+    text-align: center; }
+  form.form input {
+    width: 75%;
+    border: 1px solid black;
+    height: 20px;
+    font-size: 16px; }
+
+.flex-column-center, form.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 html {
-  height: 100vh;
   margin: 0; }
+
+header {
+  width: 100%;
+  margin: 0;
+  height: 10%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center; }
+  header nav {
+    position: absolute;
+    bottom: 5px;
+    right: 5px; }
 
 body {
   width: 100vw;
   height: 100vh;
-  background-image: url("/img/halftone/halftone.png");
+  background-image: url("/img/furley_bg/furley_bg.png");
   padding: 0;
-  margin: 0; }
-
-header {
-  padding: 20px 0;
-  background-color: #A0A083;
-  height: 10%;
-  width: 100%;
-  margin: 0; }
-
-.sequence {
-  background-color: #28536B;
-  position: relative;
-  border-radius: 15px;
-  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
-
-nav .sequence:first-of-type {
-  margin-top: 100px; }
+  margin: 0;
+  overflow: auto; }
 
 main {
   height: 90%;
   margin: 0; }
-  main nav {
-    width: 33%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: relative;
-    float: left;
-    height: 100%;
-    background-color: #A0B9C6; }
-    main nav .sequence, main nav .pose, main nav .category {
-      width: 200px;
-      height: 200px;
-      margin: 35px auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around; }
-      main nav .sequence *, main nav .pose *, main nav .category * {
-        display: none; }
-      main nav .sequence h2, main nav .sequence a, main nav .pose h2, main nav .pose a, main nav .category h2, main nav .category a {
-        display: inline;
-        text-align: center; }
-      main nav .sequence img, main nav .pose img, main nav .category img {
-        width: 120px;
-        height: 120px;
-        display: inline; }
-    main nav select {
-      width: 100%;
-      position: absolute;
-      top: 25px; }
-      main nav select option {
-        font-size: 16px;
-        text-align: center; }
+
+.builder {
+  width: 100vw;
+  height: 90vh; }
+
+.elements {
+  height: 100%;
+  width: 33%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  float: left;
+  height: 100%; }
+  .elements .sequence, .elements .pose, .elements .category {
+    width: 200px;
+    height: 200px;
+    margin: 35px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; }
+    .elements .sequence *, .elements .pose *, .elements .category * {
+      display: none; }
+    .elements .sequence h2, .elements .sequence a, .elements .pose h2, .elements .pose a, .elements .category h2, .elements .category a {
+      display: inline;
+      text-align: center; }
+    .elements .sequence img, .elements .pose img, .elements .category img {
+      width: 120px;
+      height: 120px;
+      display: inline; }
+  .elements select {
+    width: 100%;
+    position: absolute;
+    top: 25px; }
+    .elements select option {
+      font-size: 16px;
+      text-align: center; }
 
 form.builder {
   width: 66%;
@@ -145,8 +233,6 @@ form.builder {
     form.builder .sequence h2, form.builder .sequence .categories, form.builder .sequence .timer {
       position: absolute;
       left: -350px; }
-    form.builder .sequence a {
-      color: black; }
     form.builder .sequence h2 {
       top: 10px; }
     form.builder .sequence .categories {
@@ -176,8 +262,6 @@ p.close {
   height: 40px;
   background-color: transparent;
   font-size: 40px;
-  color: white;
-  font-family: "LeagueSpartan-Bold";
   text-align: center;
   padding-top: 5px;
   position: absolute;
@@ -187,62 +271,17 @@ p.close {
 nav .close, .gu-mirror .close {
   visibility: hidden; }
 
-.splash {
-  text-align: center;
-  width: 100%; }
-  .splash h1 {
-    color: #28536B;
-    font-family: "LeagueSpartan-Bold";
-    font-size: 150px;
-    width: 75%;
-    margin-left: 12.5%;
-    margin-top: 30vh;
-    font-style: italic; }
-  .splash p {
-    background-color: transparent;
-    text-align: center;
-    font-size: 30px;
-    color: #28536B;
-    width: 50%;
-    margin-left: 25%;
-    margin-bottom: 20px; }
-  .splash .buttons {
-    width: 50%;
-    margin-left: 25%; }
+.sequence, .pose, .category {
+  position: relative;
+  border-radius: 15px; }
 
-form.form {
-  margin: 20px auto;
-  height: 400px;
-  width: 300px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  border: 10px solid #A0B9C6;
-  border-radius: 15px;
-  background-color: white; }
-  form.form p, form.form label {
-    color: #A0A083; }
-  form.form input {
-    width: 75%;
-    border: 1px solid black;
-    height: 20px;
-    font-size: 16px; }
-  form.form button {
-    font-size: 16px; }
-  form.form .buttons {
-    width: 50%; }
-    form.form .buttons button {
-      width: 100%; }
+nav .sequence:first-of-type, nav .pose:first-of-type, nav .category:first-of-type {
+  margin-top: 100px; }
 
 .user .userInfo {
   width: 65%;
   height: 200px;
-  background-color: #A0A083;
   border-radius: 15px;
-  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55);
   margin-left: 17.5%;
   margin-top: 75px;
   display: flex;
@@ -250,7 +289,6 @@ form.form {
   flex-wrap: nowrap;
   justify-content: space-around; }
   .user .userInfo * {
-    color: white;
     font-size: 18px; }
   .user .userInfo img {
     border-radius: 50%;
@@ -274,10 +312,8 @@ form.form {
 .user .saved {
   width: 100%;
   height: 100px;
-  background-color: #A0A083;
   border-radius: 15px;
   margin: 20px 0;
-  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55);
   position: relative; }
   .user .saved a {
     position: absolute;
@@ -288,21 +324,29 @@ form.form {
   margin-top: 20px;
   float: left;
   width: 31.5%;
-  height: 600px;
   display: flex;
   flex-direction: column;
   align-items: center; }
-  .user .box .buttons {
-    width: 50%;
-    height: 30px; }
-    .user .box .buttons button {
-      font-size: 16px;
-      width: 100%; }
 
-.user h4 {
-  margin: 10px;
-  color: #E2DBBE;
-  font-size: 20px; }
+.splash {
+  text-align: center;
+  width: 100%; }
+  .splash h1 {
+    font-size: 150px;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 30vh;
+    font-style: italic; }
+  .splash p {
+    background-color: transparent;
+    text-align: center;
+    font-size: 30px;
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 20px; }
+  .splash .buttons {
+    width: 50%;
+    margin-left: 25%; }
 
 .pose {
   width: 65%;
@@ -331,11 +375,12 @@ form.form {
     display: flex;
     justify-content: space-around; }
     .pose .related .box {
-      background-color: #A0B9C6;
-      box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55);
       border-radius: 15px;
       height: 100px;
       width: 100px;
       display: flex;
       justify-content: center;
       align-items: center; }
+
+* {
+  box-sizing: border-box; }

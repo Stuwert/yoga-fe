@@ -8,13 +8,13 @@ block content
     h1 Login
   main
     form.form(action="/auth/login" method="POST")
-      p Please Enter Login Details
+      h3 Please Enter Login Details
       label(for="username") Username
       input(type="text" name="username")
       label(for="password" name="password") Password
       input(type="password" name="password")
-      div.buttons
-        button Login
-      h3 Don't have an account? click below to signup
+      button 
+        a Login
+      p Don't have an account? click below to signup
       button(type='button')
         a(name="signup" href="/auth/signup") Sign up

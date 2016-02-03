@@ -18,6 +18,8 @@ router.get('/:username/builder/:id', function(req, res, next){
 
 /*Create a new sequence*/
 router.post('/:username/builder', function(req, res, next){
+  //Search Sequences, add sequence (or not), return sequence id
+  //Add to User sequences
   res.send('It worked!')
 })
 

@@ -1,0 +1,33 @@
+.pose {
+  width: 65%;
+  margin-left: 17.5%;
+  margin-top: 30px; }
+  .pose img {
+    float: left;
+    height: 40%;
+    width: 40%; }
+  .pose h2 {
+    text-align: right;
+    margin-bottom: 20px; }
+  .pose .transalt {
+    width: 60%;
+    float: left;
+    text-align: right; }
+    .pose .transalt li, .pose .transalt p {
+      margin: 10px 0;
+      font-size: 20px; }
+  .pose .descriptions {
+    width: 100%;
+    float: left;
+    margin-top: 20px; }
+  .pose .related {
+    height: 100px;
+    display: flex;
+    justify-content: space-around; }
+    .pose .related .box {
+      border-radius: 15px;
+      height: 100px;
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
