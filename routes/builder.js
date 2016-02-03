@@ -4,10 +4,11 @@ var knex = require('../db/knex');
 
 var results = require('../tmp/results')
 var categories = require('../db/categories')
+var posecategories = require('../db/posecategories')
 
 /* GET new builder page. */
 router.get('/:username/builder/new', function(req, res, next) {
-  res.render('builder', {results: results.results, categories: categories, username:req.params.username});
+  res.render('builder', {results: results.results, categories: categories, username:req.params.username, posecategories: posecategories});
 });
 
 /*GET builder edit page */

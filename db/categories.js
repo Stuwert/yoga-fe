@@ -11,5 +11,9 @@ module.exports = [
     "name": 'Favorited Sequences',
     "id": 'favorites'
   },
+  {
+    "name": 'All Poses',
+    "id" : 'all'
+  }
 
 ]

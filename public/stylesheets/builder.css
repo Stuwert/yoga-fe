@@ -20,7 +20,7 @@
     justify-content: space-around; }
     .elements .sequence *, .elements .pose *, .elements .category * {
       display: none; }
-    .elements .sequence h2, .elements .sequence a, .elements .pose h2, .elements .pose a, .elements .category h2, .elements .category a {
+    .elements .sequence h2, .elements .sequence a, .elements .sequence h4, .elements .pose h2, .elements .pose a, .elements .pose h4, .elements .category h2, .elements .category a, .elements .category h4 {
       display: inline;
       text-align: center; }
     .elements .sequence img, .elements .pose img, .elements .category img {
