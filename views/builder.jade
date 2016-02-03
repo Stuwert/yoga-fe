@@ -10,11 +10,10 @@ block content
       a(href='/users/' + username + '/') Profile
   main.builder
     nav.elements 
-      - var j = 1
-      select
-        each category in categories
-          option(value=category.id)= category.name
-          
+      div.selectbox
+        select
+          each category in categories
+            option(value=category.id)= category.name  
     form.builder(action='/sequence' method='post')
       div.buttons
         button Save Sequence

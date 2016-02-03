@@ -1,6 +1,9 @@
 button {
   background-color: #8980F5; }
 
+.selectbox {
+  background-color: #CFBCDF; }
+
 .sequence, .pose, .category {
   background-color: #8499B1;
   box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
