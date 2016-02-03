@@ -3,7 +3,6 @@ var router = express.Router();
 var bcrypt   = require('bcrypt');
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
-var flash = require('connect-flash')
 var passconfig = require('../config/passport')
 var knex = require('../db/knex.js')
 /* GET home page. */
@@ -13,7 +12,12 @@ function Users() {
   return knex('users')
 }
 
+router.get('/', function(req,res,next){
+  res.redirect('/auth/login')
+})
+
 router.get('/login', function(req, res, next) {
+  console.log("Log Auth ", req.isAuthenticated())
   res.render('auth/login')
 });
 
@@ -55,10 +59,15 @@ router.get('/facebook', passport.authenticate('facebook'), function(req,res,next
 
 router.get('/facebook/callback',
     passport.authenticate('facebook', {
-        successRedirect : '/auth',
+        // successRedirect : '/users/profile/hello',
         failureRedirect : '/'
     }), function(req,res,next){
-
+      console.log("HITTERED*****",req.user)
+      // console.log('Facebook Name', user._json.name);
+      // console.log("Facebook Id", user._json.id);
+      // console.log("Facebook Picture", user._json.picture.data.url);
+      // console.log("Facebook Email", user._json.email);
+      res.redirect('/')
     });
 //  function(req,res,next){;
 //   res.redirect('/')
@@ -97,7 +106,9 @@ Users().insert(insertObj).then(function(results){
 
 
 router.get('/logout', function(req,res,next){
+  console.log("Hittted");
   req.logout()
+  req.user = null
   req.session = null
   res.redirect('/')
 })
