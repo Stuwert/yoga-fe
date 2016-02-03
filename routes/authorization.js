@@ -47,16 +47,29 @@ router.post('/login', function(req, res, next) {
 });
 
 
-router.get('/facebook',
-  passport.authenticate('facebook', {authType: 'rerequest', scope: ['user_friends', 'manage_pages'], failureRedirect: '/auth/login' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('/');
-  });
+router.get('/facebook', passport.authenticate('facebook'), function(req,res,next){
+  res.redirect('/auth')
+});
 
-router.get('/facebook/callback', function(req,res,next){;
-  res.redirect('/')
-})
+// router.get('/home', function(req, res, next){
+//   res.send("You did it!")
+//   //req.query.option would equal 'my-cool-option'
+//   // var usersName = localStorage.getItem('name').replace(/['"]+/g, '');
+//   // var originalUrl = localStorage.getItem('photo');
+//   // var url = originalUrl.replace(/['"]+/g, '');
+// });
+
+
+router.get('/facebook/callback',
+    passport.authenticate('facebook', {
+        successRedirect : '/auth',
+        failureRedirect : '/'
+    }), function(req,res,next){
+
+    });
+//  function(req,res,next){;
+//   res.redirect('/')
+// })
 
 
 
@@ -97,7 +110,8 @@ users().insert(insertObj).then(function(results){
 
 router.get('/logout', function(req,res,next){
   req.logout()
-  res.render('auth/logout')
+  req.session = null
+  res.redirect('/')
 })
 
 

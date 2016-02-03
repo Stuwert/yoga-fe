@@ -14,11 +14,10 @@ passport.use('facebook', new FacebookStrategy({
     callbackURL: "http://localhost:3000/auth/facebook/callback",
     profileFields: ['id', 'displayName', 'photos', 'email']
   },
-  function(accessToken, refreshToken, profile, cb) {
-    console.log("HERE IS MY PROFILE" + "\n" + profile);
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, profile);
-    });
+  function(accessToken, refreshToken, profile, done) {
+
+    console.log("Auth Done");
+    return done(null, profile);
   }
 ));
 
