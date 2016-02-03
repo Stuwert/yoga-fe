@@ -65,7 +65,6 @@ passport.use('local', new LocalStrategy({
 
     })
       .catch(function(err){
-        console.log('hitttttttttt');
         return done(null, false);
     })
   }
@@ -76,10 +75,21 @@ passport.serializeUser(function(user, done) {
  // later this will be where you selectively send to the browser an identifier for your user,
  // like their primary key from the database, or their ID from linkedin
  // console.log(user._json.picture.data.url);
+
   done(null, user);
 });
 
-passport.deserializeUser(function(id, done) {
+passport.deserializeUser(function(user, done) {
+  if (user._json.picture.data.url) {
+    console.log(user);
+    done(null, user)
+  }
+  else {
+  Users().select().where('id', user.id).first().then(function(results){
+    // console.log("DB RESULTS ", results);
+
+    done(null, results)
+  });
+}
   //here is where you will go to the database and get the user each time from it's id, after you set up your db
-  done(null, user)
 });
