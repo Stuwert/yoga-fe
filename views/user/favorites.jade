@@ -1,0 +1,12 @@
+extends ../layout
+
+block title
+  title= user
+
+block content
+  header
+    h1= user
+  main.user
+    if favorites
+      each f in favorites
+        li sequence #{f.sequence} by #{f.user_id}
