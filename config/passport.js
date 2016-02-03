@@ -81,11 +81,15 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(user, done) {
   if (user._json.picture.data.url) {
+    console.log('Facebook Name', user._json.name);
+    console.log("Facebook Id", user._json.id);
+    console.log("Facebook Picture", user._json.picture.data.url);
+    console.log("Facebook Email", user._json.email);
+    
     done(null, user)
   }
   else {
   Users().select().where('id', user.id).first().then(function(results){
-    // console.log("DB RESULTS ", results);
 
     done(null, results)
   });
