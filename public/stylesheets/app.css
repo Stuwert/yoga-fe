@@ -110,7 +110,8 @@ main {
       main nav .sequence * {
         display: none; }
       main nav .sequence h2, main nav .sequence a {
-        display: inline; }
+        display: inline;
+        text-align: center; }
       main nav .sequence img {
         width: 120px;
         height: 120px;

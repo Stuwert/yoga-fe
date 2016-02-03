@@ -1,6 +1,6 @@
 module.exports = [
   {
-    "name": 'Post Type',
+    "name": 'Pose Type',
     "id": 1
   },
   {
