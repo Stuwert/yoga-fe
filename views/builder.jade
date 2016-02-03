@@ -20,53 +20,7 @@ block content
         button Save Sequence
 block scripts
   script.
+    var username = !{JSON.stringify(username)};
     var options = ['Standing', 'Balancing', 'Supine', 'Seated', 'Neutral', 'Prone', 'Backbend', 'Arm and Leg Support', 'Forward Bend', 'Twist', 'Lateral Bend', 'Arm Balance and Inversion']
-    options.forEach(function(item){
-      var newDiv = '<div class="category element notdraggable"><p class="close">X</p><h2 id="' + item + '">' + item +  '</h2></div>'
-      $(newDiv).appendTo('.elements');
-    })
-    $('.elements').on('click', 'h2', function(){
-      var value = $(this).html();
-      var call = $.ajax({
-        url: 'https://young-shelf-28645.herokuapp.com/api/poses?category=' + value,
-        dataType: 'JSON',
-        method: 'GET'
-      })
-      call.done(function(result){
-        $('.elements').children('.sequence').remove();
-        var resultArray = JSON.parse(result);
-        resultArray.forEach(function(item){
-          var newDiv = '<div class="pose element notdraggable"><p class="close">X</p><h2 id="' + item.pose_id + '">' + item.pose_name +  '</h2></div>'
-          $(newDiv).appendTo('.elements');
-        })
-        console.log(result);
-      })
-      call.fail(function(result){
-        alert('Sorry we failed')
-      })
-    })
-    
-    $('select').change(function(){
-      console.log("Bing Bong");
-      $('.elements').children('.element').remove();
-      //Add ajax call here.
-      if($('select').val() === '1'){
-        var options = ['Standing', 'Balancing', 'Supine', 'Seated', 'Neutral', 'Prone', 'Backbend', 'Arm and Leg Support', 'Forward Bend', 'Twist', 'Lateral Bend', 'Arm Balance and Inversion']
-        options.forEach(function(item){
-          var newDiv = '<div class="pose element notdraggable"><p class="close">X</p><h2 id="' + item + '">' + item +  '</a></div>'
-          $(newDiv).appendTo('.elements');
-        })
-      }else{
-        var call = $.ajax({
-          dataType: "JSON",
-          url: '/api/' + !{JSON.stringify(username)} + '/' + $('select').val() ,
-          method: 'GET'
-        }).done(function(results){
-          results.forEach(function(item){
-            var newDiv = '<div class="element sequence"><p class="close">X</p><h2 id="' + item.pose_id + '">' + item.pose_name +  '</a></div>'
-            $(newDiv).appendTo('.elements');
-          })
-        })
-      }      
-    })
+  script(src='/js/builder.js')
       
