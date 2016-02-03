@@ -47,8 +47,16 @@ router.post('/login', function(req, res, next) {
 });
 
 
-app.get('/auth/facebook',
-  passport.authenticate('facebook', {authType: 'rerequest', scope: ['user_friends', 'manage_pages'] }));
+router.get('/facebook',
+  passport.authenticate('facebook', {authType: 'rerequest', scope: ['user_friends', 'manage_pages'], failureRedirect: '/auth/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+
+router.get('/facebook/callback', function(req,res,next){;
+  res.redirect('/')
+})
 
 
 

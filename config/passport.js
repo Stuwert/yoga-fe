@@ -1,5 +1,6 @@
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
 var knex = require('../db/knex.js')
 var bcrypt = require('bcrypt')
 
@@ -10,11 +11,13 @@ function users() {
 passport.use('facebook', new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/callback"
+    callbackURL: "http://localhost:3000/auth/facebook/callback",
+    profileFields: ['id', 'displayName', 'photos', 'email']
   },
   function(accessToken, refreshToken, profile, cb) {
+    console.log("HERE IS MY PROFILE" + "\n" + profile);
     User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
+      return cb(err, profile);
     });
   }
 ));
