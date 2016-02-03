@@ -5,6 +5,9 @@ dragula([document.querySelector('.elements'), document.querySelector('form')],{
   accepts: function(el, target){
     return target.tagName === 'FORM' ? true : false;
   },
+  moves: function(el){
+    return el.className.includes('notdraggable') ? false : true;
+  },
   removeOnSpill: true,
 
 })

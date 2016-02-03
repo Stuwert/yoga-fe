@@ -30,8 +30,8 @@ block content
       each sequence in sequences
         div.saved
           h4= sequence.sequence_name
-          a(href='/users/' + user_name + '/builder/' + sequence.id) Edit
+          a(href='/users/' + user.user_name + '/builder/' + sequence.id) Edit
       div.buttons
         button
-          a(href='/users/' + user_name + '/builder/new') New Sequence
+          a(href='/users/' + user.user_name + '/builder/new') New Sequence
     

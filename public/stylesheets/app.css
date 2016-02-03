@@ -99,7 +99,7 @@ main {
     float: left;
     height: 100%;
     background-color: #A0B9C6; }
-    main nav .sequence {
+    main nav .sequence, main nav .pose, main nav .category {
       width: 200px;
       height: 200px;
       margin: 35px auto;
@@ -107,11 +107,12 @@ main {
       flex-direction: column;
       align-items: center;
       justify-content: space-around; }
-      main nav .sequence * {
+      main nav .sequence *, main nav .pose *, main nav .category * {
         display: none; }
-      main nav .sequence h2, main nav .sequence a {
-        display: inline; }
-      main nav .sequence img {
+      main nav .sequence h2, main nav .sequence a, main nav .pose h2, main nav .pose a, main nav .category h2, main nav .category a {
+        display: inline;
+        text-align: center; }
+      main nav .sequence img, main nav .pose img, main nav .category img {
         width: 120px;
         height: 120px;
         display: inline; }
