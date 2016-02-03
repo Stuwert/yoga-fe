@@ -7,7 +7,7 @@ var categories = require('../db/categories')
 
 /* GET new builder page. */
 router.get('/:username/builder/new', function(req, res, next) {
-  res.render('builder', {results: results.results, categories: categories});
+  res.render('builder', {results: results.results, categories: categories, username:req.params.username});
 });
 
 /*GET builder edit page */

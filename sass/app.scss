@@ -49,7 +49,7 @@ main{
     float: left;
     height: 100%;
     background-color: $light-blue;
-    .sequence{
+    .sequence, .pose, .category{
       width: 200px;
       height: 200px;
       margin: 35px auto;
