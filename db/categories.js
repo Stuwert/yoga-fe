@@ -5,11 +5,11 @@ module.exports = [
   },
   {
     "name": 'Saved Sequences',
-    "id": 2
+    "id": 'sequences'
   },
   {
     "name": 'Favorited Sequences',
-    "id": 3
+    "id": 'favorites'
   },
 
 ]

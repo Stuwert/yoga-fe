@@ -53,8 +53,19 @@ block scripts
       if($('select').val() === '1'){
         var options = ['Standing', 'Balancing', 'Supine', 'Seated', 'Neutral', 'Prone', 'Backbend', 'Arm and Leg Support', 'Forward Bend', 'Twist', 'Lateral Bend', 'Arm Balance and Inversion']
         options.forEach(function(item){
-          var newDiv = '<div class="sequence element notdraggable"><p class="close">X</p><h2 id="' + item + '">' + item +  '</a></div>'
+          var newDiv = '<div class="pose element notdraggable"><p class="close">X</p><h2 id="' + item + '">' + item +  '</a></div>'
           $(newDiv).appendTo('.elements');
+        })
+      }else{
+        var call = $.ajax({
+          dataType: "JSON",
+          url: '/api/' + !{JSON.stringify(username)} + '/' + $('select').val() ,
+          method: 'GET'
+        }).done(function(results){
+          results.forEach(function(item){
+            var newDiv = '<div class="element sequence"><p class="close">X</p><h2 id="' + item.pose_id + '">' + item.pose_name +  '</a></div>'
+            $(newDiv).appendTo('.elements');
+          })
         })
       }      
     })
