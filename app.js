@@ -7,7 +7,6 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var db = require('./db/knex.js');
 var session = require('express-session');
-var flash = require('connect-flash')
 var passconfig = require('./config/passport.js')
 
 // require('./config/passport')(passport); // pass passport for configuration
@@ -29,17 +28,30 @@ app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(cookieParser());
+app.use(session({ secret: 'secret secret' })); // session secret
 app.use(passport.initialize())
 app.use(passport.session()); // persistent login sessions
-app.use(session({ secret: 'secret secret' })); // session secret
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+function checkAuthentication(req,res,next){
+  if(req.user){
+    console.log("This is working!");
+    next()
+  }
+  else{
+    console.log("This is not working!");
+    res.redirect('/auth')
+  }
+}
+
+
 app.use('/', routes);
-// app.use('/users', isLoggedIn)
+app.use('/users', checkAuthentication)
+app.use('/users', users)
 app.use('/auth', authorization)
 app.use('/poses', poses)
 app.use('/api', api)
