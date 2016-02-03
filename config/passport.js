@@ -81,7 +81,6 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(user, done) {
   if (user._json.picture.data.url) {
-    console.log(user);
     done(null, user)
   }
   else {

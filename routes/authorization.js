@@ -60,7 +60,7 @@ router.get('/facebook', passport.authenticate('facebook'), function(req,res,next
 router.get('/facebook/callback',
     passport.authenticate('facebook', {
         // successRedirect : '/users/profile/hello',
-        failureRedirect : '/auth/signup'
+        failureRedirect : '/'
     }), function(req,res,next){
       console.log("HITTERED*****",req.user);
       res.redirect('/')
