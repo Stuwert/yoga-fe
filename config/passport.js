@@ -5,22 +5,22 @@ var GoogleStrategy = require('passport-google').Strategy;
 var knex = require('../db/knex.js')
 var bcrypt = require('bcrypt')
 
-function users() {
+function Users() {
   return knex('users')
 }
 
-passport.use('google', new GoogleStrategy({
-    clientID: process.env.FACEBOOK_APP_ID,
-    clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/callback",
-    profileFields: ['id', 'displayName', 'photos', 'email']
-  },
-  function(accessToken, refreshToken, profile, done) {
-
-    console.log("Google Auth Done");
-    return done(null, profile);
-  }
-));
+// passport.use('google', new GoogleStrategy({
+//     clientID: process.env.FACEBOOK_APP_ID,
+//     clientSecret: process.env.FACEBOOK_APP_SECRET,
+//     callbackURL: "http://localhost:3000/auth/facebook/callback",
+//     profileFields: ['id', 'displayName', 'photos', 'email']
+//   },
+//   function(accessToken, refreshToken, profile, done) {
+//
+//     console.log("Google Auth Done");
+//     return done(null, profile);
+//   }
+// ));
 
 passport.use('facebook', new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
@@ -51,7 +51,7 @@ passport.use('local', new LocalStrategy({
   // 2. Is password good?
   // 3. Put user object into req.user
   function(req, username, password, done) {
-    users().select().where('username', username).first()
+    Users().select().where('username', username).first()
       .then(function(results){
       if(!results) {
         return done(err,false)
@@ -75,7 +75,7 @@ passport.use('local', new LocalStrategy({
 passport.serializeUser(function(user, done) {
  // later this will be where you selectively send to the browser an identifier for your user,
  // like their primary key from the database, or their ID from linkedin
- console.log(user._json.picture.data.url);
+ // console.log(user._json.picture.data.url);
   done(null, user);
 });
 

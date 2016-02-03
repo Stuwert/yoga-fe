@@ -9,7 +9,7 @@ var knex = require('../db/knex.js')
 /* GET home page. */
 
 
-function users() {
+function Users() {
   return knex('users')
 }
 
@@ -86,11 +86,12 @@ var insertObj = {
   username: req.body.username,
   password: hash
 }
-users().insert(insertObj).then(function(results){
+console.log('Bing Bong');
+Users().insert(insertObj).then(function(results){
 
 
 // Redirect user to their profile page
-  res.redirect('/users/profile')
+  res.redirect('/users/profile/' + req.body.username)
 });
 })
 
