@@ -8,7 +8,7 @@ var passport = require('passport')
 router.get('/profile/:username', function(req,res,next){
   console.log(req.user);
   console.log("HIT!!!! ", req.isAuthenticated());
-  res.redirect('/')
+  res.send('IT WORKED!!!!!!!!')
 
 });
 
