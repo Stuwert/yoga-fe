@@ -9,6 +9,13 @@ block content
   main.user
     div.userInfo
       img(src='http://placehold.it/200x200')
+      br
+    div.userInfo
+      form(action="/users/photos/"+user.id method="POST" enctype="multipart/form-data")
+        input(type="file", name="displayImage")
+        br
+        br
+        input(type="submit" value="change picture")
       div.info
         p= "Location: " + user.city + ', ' + user.state
         ul
