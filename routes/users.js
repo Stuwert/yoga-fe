@@ -18,21 +18,10 @@ router.get('/test', function(req, res, next) {
   });
 })
 
-router.get('/profile/:username', function(req, res, next) {
-  Users().where('username', req.params.username).first().then(function(user){
-    Sequences().where('user_id', req.params.userid).then(function(sequences){
-      res.render('user/index', {user: user, sequences: sequences})
-    })
+router.get('/profile/:user_id', function(req, res, next) {
+  Sequences().where('user_id', req.params.userid).then(function(sequences){
+    res.render('user/index', {user: user, sequences: sequences})
   })
 });
-
-function Sequences(){
-  return knex('user_sequences');
-}
-
-function Users(){
-  return knex('users');
-}
-
 
 module.exports = router;

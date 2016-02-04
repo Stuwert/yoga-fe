@@ -5,8 +5,10 @@ var router = express.Router();
 var poses = require('../tmp/results').results;
 
 /* GET users listing. */
-router.get('/:id', function(req, res, next) {
-  res.render('poses/pose', {pose: poses[0]})
+router.get('/:user_id', function(req, res, next) {
+  res.render('poses/pose', {
+    pose: poses[0]
+  })
 });
 
 router.get('/', function(req, res, next){

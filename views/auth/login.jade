@@ -9,10 +9,13 @@ block content
   main
     form.form(action="/auth/login" method="POST")
       h3 Please Enter Login Details
+
       label(for="username") Username
-      input(type="text" name="username")
+      input(id="username" type="text" name="username")
+
       label(for="password" name="password") Password
-      input(type="password" name="password")
+      input(id="password" type="password" name="password")
+
       button 
         a Login
       p Don't have an account? click below to signup

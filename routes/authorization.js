@@ -33,12 +33,17 @@ router.get('/login', function(req, res, next) {
 
 router.post('/login', function(req, res, next) {
   passport.authenticate('local', function(err, user, info) {
-    if (err) { return next(err); }
-    if (!user) { return res.redirect('/auth/login'); }
+    if (err) 
+      return next(err);
+    if (!user) 
+      return res.redirect('/auth/login');
+
     req.logIn(user, function(err) {
-      if (err) { return next(err); }
+      if (err) 
+        return next(err);
       return res.redirect('/users/profile/' + user.username);
     });
+
   })(req, res, next);
 });
 

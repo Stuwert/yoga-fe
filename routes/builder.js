@@ -7,25 +7,33 @@ var categories = require('../db/categories')
 var posecategories = require('../db/posecategories')
 
 /* GET new builder page. */
-router.get('/:username/builder/new', function(req, res, next) {
-  res.render('builder', {results: results.results, categories: categories, username:req.params.username, posecategories: posecategories});
+router.get('/:user_id/builder/new', function(req, res, next) {
+  res.render('builder', {
+    results: results.results, 
+    categories: categories, 
+    user_id: req.params.user_id, 
+    posecategories: posecategories
+  });
 });
 
 /*GET builder edit page */
-router.get('/:username/builder/:id', function(req, res, next){
-  res.render('builder', {results: results.results, categories: categories})
+router.get('/:user_id/builder/:id', function(req, res, next){
+  res.render('builder', {
+    results: results.results, 
+    categories: categories
+  })
 })
 
 
 /*Create a new sequence*/
-router.post('/:username/builder', function(req, res, next){
+router.post('/:user_id/builder', function(req, res, next){
   //Search Sequences, add sequence (or not), return sequence id
   //Add to User sequences
   res.send('It worked!')
 })
 
 /*Edit an existing sequence*/
-router.post('/:username/builder/:id', function(req, res, next){
+router.post('/:user_id/builder/:id', function(req, res, next){
   res.send('It worked!')
 })
 
