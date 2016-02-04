@@ -11,12 +11,9 @@ function Users(){
   return knex('users');
 }
 
-
-router.get('/test', function(req, res, next) {
-  Users().select().then(function(result){
-    res.send(result);
-  });
-})
+router.get('/:user_id', function(req, res, next){
+  res.redirect('/users/profile/' + req.params.user_id);
+});
 
 router.get('/profile/:user_id', function(req, res, next) {
   Users().where('id', req.params.user_id).first().then(function(user){
