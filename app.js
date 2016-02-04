@@ -8,6 +8,9 @@ var passport = require('passport');
 var db = require('./db/knex.js');
 var session = require('express-session');
 var passconfig = require('./config/passport.js')
+var multer = require('multer')
+
+
 
 // require('./config/passport')(passport); // pass passport for configuration
 
@@ -38,6 +41,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 function checkAuthentication(req,res,next){
+
   if(req.isAuthenticated()){
     //Once id paths have changed, add && req.params.user_id === req.user.id
     next()

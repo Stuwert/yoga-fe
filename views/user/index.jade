@@ -5,18 +5,27 @@ block title
 
 block content
   header
-    h1 #{user.first_name} #{user.last_name}'s Profile
+
+    h1= user.first_name + " "  + user.last_name + "'s Profile"
+
   main.user
     div.userInfo
       img(src='http://placehold.it/200x200')
+      br
+    div.userInfo
+      form(action="/users/photos/"+user.id method="POST" enctype="multipart/form-data")
+        input(type="file", name="displayImage")
+        br
+        br
+        input(type="submit" value="change picture")
       div.info
-        p Location: #{user.city}, #{user.state}
-        p Specialty: #{user.specialty}
+
+        p= "Location: " + user.city + ', ' + user.state
         ul
-          li Interests
-          if user.interests
-            each interest in user.interests
-              li= interest
+          li Specialities:
+          if user.speciality
+            li= user.speciality
+        p= "Bio: " + user.bio
     div.favoriteSequences.box
       h4 Favorite Sequences
       if user.favorites 

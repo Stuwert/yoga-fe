@@ -112,9 +112,10 @@ Users().insert(insertObj).then(function(results){
 
 router.get('/logout', function(req,res,next){
   console.log("Hittted");
-  req.logout()
   req.user = null
   req.session = null
+  console.log(req.user);
+  req.logout()
   res.redirect('/')
 })
 
