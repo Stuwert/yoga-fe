@@ -7,14 +7,18 @@ block content
   header
     h1 Signup
   main
+    if message
+      p= message
+  
     form.form(action="/auth/signup" method="POST")
-      label(for="name") Name
-      input(type="name" name="name")
+      label(for="first_name") First Name
+      input(type="name" name="first_name")
+      label(for="last_name") Last Name
+      input(type="name" name="last_name")
       label(for="email") Email
       input(type="email" name="email")
       label(for="username") Username
       input(type="text" name="username")
       label(for="password" name="password") Password
       input(type="password" name="password")
-      button
-        a Sign-up
+      input(type="submit")

@@ -1,0 +1,21 @@
+extends ../layout
+
+block title
+block content
+  header
+    h1 Add more info #{user.first_name} #{user.last_name}!
+  form.form(action="/auth/"+user.id+"/profile" method="POST" enctype="multipart/form-data")
+    label(for="displayImage") Add profile picture
+    input(type="file", name="displayImage")
+    label(for="studio") Studio
+    input(type="text" name="studio")
+    label(for="style") Speciality
+    Select(name="style")
+      if styles
+        for style in styles
+          option=style
+
+    label(for="password" name="bio") Bio
+    textarea(type="password" name="password")
+    button
+      a Sign-up
