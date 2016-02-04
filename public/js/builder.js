@@ -80,6 +80,7 @@ function sequenceSave_complete(){
 
 function sequenceSave_success(){
   alert('your sequence is saved');
+  window.location.href = '/users/profile/' + user_id
 }
 
 function sequenceSave_fail(result){
