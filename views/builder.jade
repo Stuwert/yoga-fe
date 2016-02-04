@@ -7,7 +7,7 @@ block content
   header
     h1 New Sequence
     nav 
-      a(href='/users/' + username + '/') Profile
+      a(href='/users/' + user_id + '/') Profile
   main.builder
     nav.elements 
       div.selectbox
@@ -19,7 +19,7 @@ block content
         a Save Sequence
 block scripts
   script.
-    var username = !{JSON.stringify(username)};
+    var user_id = !{JSON.stringify(user_id)};
     var posecategories = !{JSON.stringify(posecategories)}
   script(src='/js/builder.js')
       
