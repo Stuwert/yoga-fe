@@ -15,9 +15,6 @@ block content
           each category in categories
             option(value=category.id)= category.name  
     form.builder(action='/sequence' method='post')
-      if sequence
-        h1 FUCK YES YOGA
-        p #{sequence}
       button(type='button') 
         a Save Sequence
 block scripts

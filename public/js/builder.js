@@ -15,7 +15,6 @@ if(sequence){
 
 }
 
-
 function getPose (id){
   return $.ajax({
     url: 'https://young-shelf-28645.herokuapp.com/api/poses/id?id=' + id,
@@ -23,9 +22,6 @@ function getPose (id){
     method: 'GET'
   })
 }
-
-
-
 
 $('.elements').on('click', 'h2', function(){
   $('.elements').children('.element').remove();
