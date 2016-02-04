@@ -82,7 +82,8 @@ function sequenceSave_success(){
   alert('your sequence is saved');
 }
 
-function sequenceSave_fail(){
+function sequenceSave_fail(result){
+  console.log(result);
   alert('there was an error');
 }
 

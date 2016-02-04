@@ -36,18 +36,20 @@ router.post('/:user_id/builder', function(req, res, next){
   console.log(user_id);
   console.log(times);
   console.log(sequence);
-  
+
   // get sequence id where sequence exists. else create sequence and return sequence id
-  // add to user_sequences 
+  // add to user_sequences
   db.addIfDoesNotExist(sequence, function(results){
     db.createUserSequence({
       'user_id': user_id,
-      'sequence_id': sequence,
+      'sequence_id': results[0],
       'name': 'sequencename',
       'is_public': true,
-      'timing': timing
+      'timing': JSON.stringify(times)
+    }, function(result){
+      res.send('Bing Bong')
     });
-  })
+  });
 })
 
 /*Edit an existing sequence*/
