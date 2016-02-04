@@ -16,6 +16,9 @@ var users = require('./routes/users');
 var builder = require('./routes/builder');
 var authorization = require('./routes/authorization')
 var poses = require('./routes/poses')
+var api = require('./routes/api')
+var sequences = require('./routes/sequences')
+var favorites = require('./routes/favorites')
 
 var app = express();
 
@@ -35,12 +38,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 function checkAuthentication(req,res,next){
-  if(req.user != null){
-    console.log("This is working!");
+
+  if(req.isAuthenticated()){
     next()
   }
   else{
-    console.log("This is not working!");
     res.redirect('/auth')
   }
 }
@@ -51,12 +53,13 @@ app.use('/users', checkAuthentication)
 app.use('/users', users)
 app.use('/auth', authorization)
 app.use('/poses', poses)
+app.use('/api', api)
 
-
-app.use('/', routes);
+//Paths for users
 app.use('/users', users);
 app.use('/users', builder);
-
+app.use('/users', sequences);
+app.use('/users', favorites);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,109 @@
+.builder {
+  width: 100vw;
+  height: 90vh; }
+
+.elements {
+  height: 100%;
+  width: 33%;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  float: left;
+  height: 100%;
+  padding-top: 50px; }
+  .elements .element {
+    width: 200px;
+    height: 200px;
+    margin: 35px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around; }
+    .elements .element * {
+      display: none; }
+    .elements .element h2, .elements .element a, .elements .element h4 {
+      display: inline;
+      text-align: center; }
+    .elements .element img {
+      width: 120px;
+      height: 120px;
+      display: inline; }
+  .elements .selectbox {
+    width: 33%;
+    height: 50px;
+    position: fixed;
+    top: 10%;
+    font-size: 30px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .elements .selectbox option {
+      font-size: 16px;
+      text-align: center; }
+
+form.builder {
+  width: 66%;
+  height: 100%;
+  float: left;
+  align-items: center;
+  overflow-y: scroll;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 80px; }
+  form.builder .pose {
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+    display: relative;
+    right: -250px; }
+    form.builder .pose img {
+      width: 200px;
+      height: 200px;
+      margin: 25px; }
+    form.builder .pose h4, form.builder .pose input, form.builder .pose label {
+      position: absolute;
+      left: -350px; }
+    form.builder .pose h4 {
+      top: 10px;
+      font-size: 30px;
+      width: 250px; }
+    form.builder .pose .categories {
+      top: 50px;
+      font-size: 18px; }
+      form.builder .pose .categories em {
+        text-decoration: underline; }
+    form.builder .pose label {
+      top: 100px; }
+    form.builder .pose input {
+      top: 120px;
+      width: 60px; }
+  form.builder .sequence:first-of-type {
+    align-self: flex-start; }
+  form.builder button {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 2; }
+
+p.close {
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 5px;
+  position: absolute;
+  top: 0px;
+  right: -5px; }
+
+nav .close, .gu-mirror .close {
+  visibility: hidden; }
+
+.sequence, .pose, .category {
+  position: relative;
+  border-radius: 15px; }
+
+nav .sequence:first-of-type, nav .pose:first-of-type, nav .category:first-of-type {
+  margin-top: 100px; }

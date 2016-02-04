@@ -1,0 +1,19 @@
+.splash {
+  text-align: center;
+  width: 100%; }
+  .splash h1 {
+    font-size: 150px;
+    width: 75%;
+    margin-left: 12.5%;
+    margin-top: 30vh;
+    font-style: italic; }
+  .splash p {
+    background-color: transparent;
+    text-align: center;
+    font-size: 30px;
+    width: 50%;
+    margin-left: 25%;
+    margin-bottom: 20px; }
+  .splash .buttons {
+    width: 50%;
+    margin-left: 25%; }

@@ -7,36 +7,29 @@
   src: url("LeagueSpartan-Bold.otf"); }
 
 h1 {
-  color: #DEE7E7;
   text-align: center;
   margin: 0;
   font-family: 'LeagueSpartan-Bold'; }
 
 h1 {
-  font-size: 45px; }
+  font-size: 40px; }
 
-p, button, label, input, h2, h3, h4, h5, h6 {
+p, button, label, input, h2, h3, h4, h5, h6, ul, li, a {
   font-family: "Fontin";
-  font-size: 18.75px;
+  font-size: 16.66667px;
   color: black; }
 
 h2 {
-  font-size: 37.5px; }
+  font-size: 33.33333px; }
 
 h3 {
-  font-size: 30px; }
+  font-size: 26.66667px; }
 
 h4 {
-  font-size: 22.5px; }
+  font-size: 20px; }
 
 h5 {
-  font-size: 15px; }
+  font-size: 13.33333px; }
 
 h6 {
-  font-size: 7.5px; }
-
-button a {
-  color: #DEE7E7; }
-
-.splash h1, .splash p {
-  color: #11B6C3; }
+  font-size: 6.66667px; }

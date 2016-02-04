@@ -1,0 +1,30 @@
+button {
+  background-color: #8980F5; }
+
+.selectbox {
+  background-color: #CFBCDF; }
+
+.sequence, .pose, .category {
+  background-color: #8499B1;
+  box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
+
+header {
+  background-color: #49306B; }
+  header a {
+    color: #DEE7E7; }
+
+.elements {
+  background-color: #CFBCDF; }
+
+.form {
+  border: 5px solid #49306B;
+  background-color: white; }
+
+h1 {
+  color: #DEE7E7; }
+
+button a {
+  color: #DEE7E7; }
+
+.splash h1, .splash p {
+  color: #11B6C3; }

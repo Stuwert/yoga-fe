@@ -45,4 +45,7 @@ gulp.task('default', ['browser-sync', 'sass'], function(){
   gulp.watch('./public/javascripts/*', reload);
   gulp.watch('./views/*', reload);
   gulp.watch('./views/about/*', reload);
+  gulp.watch('./views/auth/*', reload);
+  gulp.watch('./views/poses/*', reload);
+  gulp.watch('./views/user/*', reload);
 });

@@ -1,0 +1,27 @@
+html {
+  margin: 0; }
+
+header {
+  width: 100%;
+  margin: 0;
+  height: 10%;
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center; }
+  header nav {
+    position: absolute;
+    bottom: 5px;
+    right: 5px; }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("/img/furley_bg/furley_bg.png");
+  padding: 0;
+  margin: 0;
+  overflow: auto; }
+
+main {
+  height: 90%;
+  margin: 0; }

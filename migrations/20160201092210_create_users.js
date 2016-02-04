@@ -7,6 +7,8 @@ exports.up = function(knex, Promise) {
   table.string('email');
   table.string('username');
   table.string('password');
+  table.string('city')
+  table.string('state')
   table.string('fb_id')
   table.string('image')
   table.string('speciality')

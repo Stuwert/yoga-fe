@@ -5,34 +5,32 @@ block title
 
 block content
   header
-    h1= user.firstname + " "  + user.lastname + "'s Profile"
+    h1= user.first_name + " "  + user.last_name + "'s Profile"
   main.user
     div.userInfo
+      form(action="user/photo" method="POST")
       img(src='http://placehold.it/200x200')
       div.info
         p= "Location: " + user.city + ', ' + user.state
-        p= "Specialty: " + user.specialty
         ul
-          li Interests
-          if user.interests
-            each interest in user.interests
-              li= interest
+          li Specialities:
+          if user.speciality
+            li= user.speciality
+        p= "Bio: " + user.bio
     div.favoriteSequences.box
-      h2 Favorite Sequences
+      h4 Favorite Sequences
       if user.favorites 
         each sequence in user.favorites
           div.saved
             h4= sequence.creator
-        div.buttons
-          button
-            a(href='/sequences/all') All Sequences
+        button
+          a(href='/sequences/all') All Sequences
     div.personalSequences.box
-      h2 My Sequences
+      h4 My Sequences
       each sequence in sequences
         div.saved
           h4= sequence.sequence_name
           a(href='/users/' + user.username + '/builder/' + sequence.id) Edit
-      div.buttons
-        button
-          a(href='/users/' + user.username + '/builder/new') New Sequence
+      button
+        a(href='/users/' + user.username + '/builder/new') New Sequence
     

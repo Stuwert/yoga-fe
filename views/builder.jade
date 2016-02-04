@@ -8,37 +8,18 @@ block content
     h1 New Sequence
     nav 
       a(href='/users/' + username + '/') Profile
-  main
+  main.builder
     nav.elements 
-      - var j = 1
-      select
-        each category in categories
-          option(value=category.id)= category.name
-          
+      div.selectbox
+        select
+          each category in categories
+            option(value=category.id)= category.name  
     form.builder(action='/sequence' method='post')
-      div.buttons
-        button Save Sequence
+      button(type='button') 
+        a Save Sequence
 block scripts
   script.
-    var options = ['Standing', 'Balancing', 'Supine', 'Seated', 'Neutral', 'Prone', 'Backbend', 'Arm and Leg Support', 'Forward Bend', 'Twist', 'Lateral Bend', 'Arm Balance and Inversion']
-    options.forEach(function(item){
-      var newDiv = '<div class="sequence notdraggable"><p class="close">X</p><h2 id="' + item + '"><a>' + item +  '</a></h2></div>'
-      $(newDiv).appendTo('.elements');
-    })
-    $('.sequence').on('click', 'a', function(){
-      $('.elements').children('.sequence').remove();
-      //Add ajax call here.
-    })
-    
-    $('select').change(function(){
-      $('.elements').children('.sequence').remove();
-      //Add ajax call here.
-      if($('select').val() === '1'){
-        var options = ['Standing', 'Balancing', 'Supine', 'Seated', 'Neutral', 'Prone', 'Backbend', 'Arm and Leg Support', 'Forward Bend', 'Twist', 'Lateral Bend', 'Arm Balance and Inversion']
-        options.forEach(function(item){
-          var newDiv = '<div class="sequence notdraggable"><p class="close">X</p><h2 id="' + item + '"><a>' + item +  '</a></h2></div>'
-          $(newDiv).appendTo('.elements');
-        })
-      }      
-    })
+    var username = !{JSON.stringify(username)};
+    var posecategories = !{JSON.stringify(posecategories)}
+  script(src='/js/builder.js')
       
