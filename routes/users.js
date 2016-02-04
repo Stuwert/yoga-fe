@@ -19,12 +19,17 @@ router.get('/test', function(req, res, next) {
 })
 
 router.get('/profile/:user_id', function(req, res, next) {
-  Sequences().where('user_id', req.params.userid).then(function(sequences){
-    res.render('user/index', {
-      user: req.params.user_id, 
-      sequences: sequences
+  Users().where('id', req.params.user_id).first().then(function(user){
+    Sequences().where('user_id', req.params.user_id).then(function(sequences){
+      console.log('ROUTES/USERS: rendering');
+      console.log(user);
+      console.log(sequences);
+      res.render('user/index', {
+        user: user, 
+        sequences: sequences
+      })
     })
-  })
+  });
 });
 
 module.exports = router;
