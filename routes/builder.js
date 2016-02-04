@@ -27,7 +27,8 @@ router.get('/:user_id/builder/:id', function(req, res, next){
         time: usersequence.timing,
         categories: categories,
         posecategories: posecategories,
-        user_id: req.params.user_id
+        user_id: req.params.user_id,
+        usersequence_id: usersequence.id
       })
     })
   });

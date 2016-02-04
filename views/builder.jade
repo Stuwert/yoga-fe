@@ -21,10 +21,12 @@ block scripts
   script.
     var user_id = !{JSON.stringify(user_id)};
     var posecategories = !{JSON.stringify(posecategories)}
+    var sequence = null, time = null, usersequence_id = null;
   if sequence 
     script.
-      var sequence = !{JSON.stringify(sequence)}
-      var time = !{JSON.stringify(time)}
+      sequence = !{JSON.stringify(sequence)}
+      time = !{JSON.stringify(time)}
+      usersequence_id = !{JSON.stringify(usersequence_id)}
       console.log(sequence, time);
   script(src='/js/builder.js')
       
