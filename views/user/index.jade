@@ -8,7 +8,6 @@ block content
     h1= user.first_name + " "  + user.last_name + "'s Profile"
   main.user
     div.userInfo
-      form(action="user/photo" method="POST")
       img(src='http://placehold.it/200x200')
       div.info
         p= "Location: " + user.city + ', ' + user.state
