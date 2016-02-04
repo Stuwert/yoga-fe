@@ -37,35 +37,34 @@ passport.use('facebook', new FacebookStrategy({
 
 
 
-
-
-
 passport.use('local', new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
   passReqToCallback : true,
-},
+}, function(req, username, password, done) {
   // 3 parts to LocalStrategy authentication
 
   // 1. Is username good?
   // 2. Is password good?
   // 3. Put user object into req.user
-  function(req, username, password, done) {
-    Users().select().where('username', username).first()
-      .then(function(results){
+  Users()
+    .select()
+    .where('username', username)
+    .first()
+    .then(function(results){
       if(!results) {
-        return done(err,false)
-        console.log("hit");
+        console.log("LOGIN: no such username");
+        return done(err,false);
       }
       if(!bcrypt.compareSync(password , results.password)) {
+        console.log("LOGIN: password does not match");
         return done(null, false)
       }
-      // logged in
-      return done(null, results)
-
+      console.log("LOGIN: successful");
+      return done(null, results);
     })
-      .catch(function(err){
-        return done(null, false);
+    .catch(function(err){
+      return done(null, false);
     })
   }
 ));

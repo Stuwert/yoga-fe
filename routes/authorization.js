@@ -41,7 +41,8 @@ router.post('/login', function(req, res, next) {
     req.logIn(user, function(err) {
       if (err) 
         return next(err);
-      return res.redirect('/users/profile/' + user.username);
+      console.log('logging in user ' + user.id);
+      return res.redirect('/users/profile/' + user.id);
     });
 
   })(req, res, next);
