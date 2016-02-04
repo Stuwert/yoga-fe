@@ -3,8 +3,6 @@ var router = express.Router();
 var knex = require('../db/knex');
 var db = require('../lib/db_favorites');
 
-var results = require('../tmp/results')
-
 router.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -19,10 +17,6 @@ router.get('/:user_id/favorites', function(req, res, next){
   })
 })
 
-router.post('/derp', function(req, res, next){
-  console.log(req.body);
-})
-
 //Gets one unique sequence favorited by user.
 router.get('/:user_id/favorites/:id', function(req, res, next){
 
@@ -30,7 +24,9 @@ router.get('/:user_id/favorites/:id', function(req, res, next){
 
 //Gets all routes the user has created
 router.get('/:user_id/sequences/', function(req, res, next){
-  res.send(results.results);
+  db.get_user_sequences(req.params.uid, function(result){
+    res.send(result);
+  })
 })
 
 //Gets one route the user has created

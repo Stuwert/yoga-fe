@@ -1,5 +1,23 @@
 loadCategories(posecategories);
 
+// sequence.forEach(function(item, i){
+//   $.when(getPose(item)).done(function(result){
+//
+//     newPose(result[0].id, result[0].pose_name, 'form.builder');
+//   })
+// })
+
+function getPose (id){
+  return $.ajax({
+    url: 'https://young-shelf-28645.herokuapp.com/api/poses/id?id=' + id,
+    dataType: 'JSON',
+    method: 'GET'
+  })
+}
+
+
+
+
 $('.elements').on('click', 'h2', function(){
   $('.elements').children('.element').remove();
   if($(this).parent().hasClass('category')){
@@ -32,16 +50,16 @@ $('button').click(function(){
   sequenceArray = sequenceArray.map(function(item){
     return +$(item).attr('id');
   })
-  $.ajax({
-    url: '/api/derp',
-    method: 'POST',
+  $.post({
+    url: '/users/' + user_id + '/builder',
     dataType: 'JSON',
     traditional: 'true',
     data: {
       'sequence': sequenceArray,
       'time': timeArray
      }
-    }
+  }).always(function(thing){
+    alert('Your Sequence is Saved')
   })
 })
 
@@ -54,8 +72,13 @@ var allPoseCall = function(){
 }
 
 function poseReturn(results){
+  $('.elements').append('<div><a class="back">Back</a><div>')
+  $('.back').click(function(){
+    $('.elements').children('.element').remove();
+    loadCategories(posecategories);
+  })
   results.forEach(function(item){
-    newPose(item.id, item.pose_name)
+    newPose(item.id, item.pose_name, '.elements')
   })
 }
 
@@ -105,9 +128,9 @@ function loadCategories(array){
   })
 }
 
-function newPose(id, name){
+function newPose(id, name, appendTo){
   var newDiv = '<div class="pose element"><p class="close">X</p><h4 id="' + id + '">' + name + '</h4><label>Time</label><input type="number"><img src="http://placehold.it/250x250"></input></div>'
-  $(newDiv).appendTo('.elements');
+  $(newDiv).appendTo(appendTo);
 }
 
 function newSequence(name, id){

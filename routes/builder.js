@@ -9,9 +9,9 @@ var posecategories = require('../db/posecategories')
 /* GET new builder page. */
 router.get('/:user_id/builder/new', function(req, res, next) {
   res.render('builder', {
-    results: results.results, 
-    categories: categories, 
-    user_id: req.params.user_id, 
+    results: results.results,
+    categories: categories,
+    user_id: req.params.user_id,
     posecategories: posecategories
   });
 });
@@ -19,7 +19,7 @@ router.get('/:user_id/builder/new', function(req, res, next) {
 /*GET builder edit page */
 router.get('/:user_id/builder/:id', function(req, res, next){
   res.render('builder', {
-    results: results.results, 
+    results: results.results,
     categories: categories
   })
 })
@@ -27,6 +27,7 @@ router.get('/:user_id/builder/:id', function(req, res, next){
 
 /*Create a new sequence*/
 router.post('/:user_id/builder', function(req, res, next){
+  console.log(req.body);
   //Search Sequences, add sequence (or not), return sequence id
   //Add to User sequences
   res.send('It worked!')
