@@ -23,6 +23,12 @@ $('.elements').on('click', 'h2', function(){
   $('.back').remove();
   if($(this).parent().hasClass('category')){
     $.when(categoryCall($(this).html())).done(poseReturn).fail(fail);
+    $('.elements').append('<div><a class="back">Back</a><div>')
+    $('.back').click(function(){
+      $('.elements').children('.element').remove();
+      $('.back').remove();
+      loadCategories(posecategories);
+    })
   }else if($(this).parent().hasClass('sequence')){
     //Do a sequence thing
   }else{
@@ -73,12 +79,6 @@ var allPoseCall = function(){
 }
 
 function poseReturn(results){
-  $('.elements').append('<div><a class="back">Back</a><div>')
-  $('.back').click(function(){
-    $('.elements').children('.element').remove();
-    $('.back').remove();
-    loadCategories(posecategories);
-  })
   results.forEach(function(item){
     newPose(item.id, item.pose_name, '.elements')
   })
@@ -110,12 +110,13 @@ function fail(reuslt){
 var sequenceCall = function(value){
   return $.ajax({
     dataType: "JSON",
-    url: '/api/' + username + '/' + value,
+    url: '/api/' + user_id + '/' + value,
     method: 'GET'
   })
 }
 
 function sequenceReturn(results){
+  // console.log(results);
   results.forEach(function(item){
     var newDiv = '<div class="element sequence"><h2 id="' + item.pose_id + '">' + item.pose_name +  '</a></div>'
     $(newDiv).appendTo('.elements');
