@@ -5,13 +5,13 @@ block title
 
 block content
   header
-    h1= user.firstname + " "  + user.lastname + "'s Profile"
+    h1 #{user.first_name} #{user.last_name}'s Profile
   main.user
     div.userInfo
       img(src='http://placehold.it/200x200')
       div.info
-        p= "Location: " + user.city + ', ' + user.state
-        p= "Specialty: " + user.specialty
+        p Location: #{user.city}, #{user.state}
+        p Specialty: #{user.specialty}
         ul
           li Interests
           if user.interests
@@ -30,7 +30,7 @@ block content
       each sequence in sequences
         div.saved
           h4= sequence.sequence_name
-          a(href='/users/' + user.username + '/builder/' + sequence.id) Edit
+          a(href='/users/#{user.id}/builder/#{sequence.id}') Edit
       button
-        a(href='/users/' + user.username + '/builder/new') New Sequence
+        a(href='/users/#{user.id}/builder/new') New Sequence
     

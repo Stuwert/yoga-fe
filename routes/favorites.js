@@ -3,10 +3,10 @@ var router = express.Router();
 var knex = require('../db/knex');
 var db = require('../lib/db_favorites');
 
-router.get('/:uid/favorites', function(req, res, next){
-  db.get_user_favorites(req.params.uid, function(result){
+router.get('/:user_id/favorites', function(req, res, next){
+  db.get_user_favorites(req.params.user_id, function(result){
     res.render('user/favorites', {
-      user: req.params.uid,
+      user: req.params.user_id,
       favorites: result
     });
   });
