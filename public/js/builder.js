@@ -1,11 +1,19 @@
 loadCategories(posecategories);
 
-// sequence.forEach(function(item, i){
-//   $.when(getPose(item)).done(function(result){
-//
-//     newPose(result[0].id, result[0].pose_name, 'form.builder');
-//   })
-// })
+if(sequence){
+  if(sequence.length > 1){
+    sequence.forEach(function(item, i){
+      $.when(getPose(item)).done(function(result){
+        newPose(result[0].id, result[0].pose_name, 'form.builder', time[i]);
+      })
+    })
+  }else{
+    $.when(getPose(sequence)).done(function(result){
+      newPose(result[0].id, result[0].pose_name, 'form.builder')
+    })
+  }
+
+}
 
 function getPose (id){
   return $.ajax({
@@ -15,14 +23,17 @@ function getPose (id){
   })
 }
 
-
-
-
 $('.elements').on('click', 'h2', function(){
   $('.elements').children('.element').remove();
   $('.back').remove();
   if($(this).parent().hasClass('category')){
     $.when(categoryCall($(this).html())).done(poseReturn).fail(fail);
+    $('.elements').append('<div><a class="back">Back</a><div>')
+    $('.back').click(function(){
+      $('.elements').children('.element').remove();
+      $('.back').remove();
+      loadCategories(posecategories);
+    })
   }else if($(this).parent().hasClass('sequence')){
     //Do a sequence thing
   }else{
@@ -43,6 +54,7 @@ $('select').change(function(){
 })
 
 $('button').click(function(){
+  console.log(user_id);
   var timeArray = $('form').find('input').toArray();
   timeArray = timeArray.map(function(item){
     return +$(item).val();
@@ -51,18 +63,36 @@ $('button').click(function(){
   sequenceArray = sequenceArray.map(function(item){
     return +$(item).attr('id');
   })
-  $.post({
-    url: '/users/' + user_id + '/builder',
+
+  console.log('times: ' + timeArray);
+  console.log('seqs: ' + sequenceArray);
+  var restOfCall = sequence ? "/" + usersequence_id : "/"
+  $.post('/users/' + user_id + '/builder' + restOfCall, {
     dataType: 'JSON',
     traditional: 'true',
     data: {
       'sequence': sequenceArray,
       'time': timeArray
      }
-  }).always(function(thing){
-    alert('Your Sequence is Saved')
   })
+  .always(sequenceSave_complete)
+  .done(sequenceSave_success)
+  .fail(sequenceSave_fail)
 })
+
+function sequenceSave_complete(){
+  alert('post complete');
+}
+
+function sequenceSave_success(){
+  alert('your sequence is saved');
+  window.location.href = '/users/profile/' + user_id
+}
+
+function sequenceSave_fail(result){
+  console.log(result);
+  alert('there was an error');
+}
 
 var allPoseCall = function(){
   return $.ajax({
@@ -73,12 +103,6 @@ var allPoseCall = function(){
 }
 
 function poseReturn(results){
-  $('.elements').append('<div><a class="back">Back</a><div>')
-  $('.back').click(function(){
-    $('.elements').children('.element').remove();
-    $('.back').remove();
-    loadCategories(posecategories);
-  })
   results.forEach(function(item){
     newPose(item.id, item.pose_name, '.elements')
   })
@@ -110,12 +134,13 @@ function fail(reuslt){
 var sequenceCall = function(value){
   return $.ajax({
     dataType: "JSON",
-    url: '/api/' + username + '/' + value,
+    url: '/api/' + user_id + '/' + value,
     method: 'GET'
   })
 }
 
 function sequenceReturn(results){
+  // console.log(results);
   results.forEach(function(item){
     var newDiv = '<div class="element sequence"><h2 id="' + item.pose_id + '">' + item.pose_name +  '</a></div>'
     $(newDiv).appendTo('.elements');
@@ -130,8 +155,8 @@ function loadCategories(array){
   })
 }
 
-function newPose(id, name, appendTo){
-  var newDiv = '<div class="pose element"><p class="close">X</p><h4 id="' + id + '">' + name + '</h4><label>Time</label><input type="number"><img src="http://placehold.it/250x250"></input></div>'
+function newPose(id, name, appendTo, time){
+  var newDiv = '<div class="pose element"><p class="close">X</p><h4 id="' + id + '"><a href="/poses/'+ id +'">' + name + '</a></h4><label>Time</label><input type="number" value="' + time + '"><img src="http://placehold.it/250x250"></input></div>'
   $(newDiv).appendTo(appendTo);
 }
 

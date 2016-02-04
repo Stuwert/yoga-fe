@@ -10,16 +10,13 @@ block content
 
   main.user
     div.userInfo
-      img(src='http://placehold.it/200x200')
-      br
-    div.userInfo
-      form(action="/users/photos/"+user.id method="POST" enctype="multipart/form-data")
-        input(type="file", name="displayImage")
-        br
-        br
-        input(type="submit" value="change picture")
+      if !user.image
+        form(action="/users/photos/"+user.id method="POST" enctype="multipart/form-data")
+          input(type="file", name="displayImage")
+          input(type="submit" value="change picture")
+      else 
+        img(src=user.image)
       div.info
-
         p= "Location: " + user.city + ', ' + user.state
         ul
           li Specialities:
@@ -38,7 +35,7 @@ block content
       h4 My Sequences
       each sequence in sequences
         div.saved
-          h4= sequence.sequence_name
+          h4= sequence.name
           a(href='/users/#{user.id}/builder/#{sequence.id}') Edit
       button
         a(href='/users/#{user.id}/builder/new') New Sequence
