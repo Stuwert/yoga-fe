@@ -132,7 +132,7 @@ function loadCategories(array){
 }
 
 function newPose(id, name, appendTo){
-  var newDiv = '<div class="pose element"><p class="close">X</p><h4 id="' + id + '">' + name + '</h4><label>Time</label><input type="number"><img src="http://placehold.it/250x250"></input></div>'
+  var newDiv = '<div class="pose element"><p class="close">X</p><h4 id="' + id + '"><a href="/poses/'+ id +'">' + name + '</a></h4><label>Time</label><input type="number"><img src="http://placehold.it/250x250"></input></div>'
   $(newDiv).appendTo(appendTo);
 }
 

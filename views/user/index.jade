@@ -15,11 +15,8 @@ block content
     div.userInfo
       form(action="/users/photos/"+user.id method="POST" enctype="multipart/form-data")
         input(type="file", name="displayImage")
-        br
-        br
         input(type="submit" value="change picture")
       div.info
-
         p= "Location: " + user.city + ', ' + user.state
         ul
           li Specialities:

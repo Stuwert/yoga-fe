@@ -1,30 +1,30 @@
-.pose {
+.pose-detail {
   width: 65%;
   margin-left: 17.5%;
   margin-top: 30px; }
-  .pose img {
+  .pose-detail img {
     float: left;
     height: 40%;
     width: 40%; }
-  .pose h2 {
+  .pose-detail h2 {
     text-align: right;
     margin-bottom: 20px; }
-  .pose .transalt {
+  .pose-detail .transalt {
     width: 60%;
     float: left;
     text-align: right; }
-    .pose .transalt li, .pose .transalt p {
+    .pose-detail .transalt li, .pose-detail .transalt p {
       margin: 10px 0;
       font-size: 20px; }
-  .pose .descriptions {
+  .pose-detail .descriptions {
     width: 100%;
     float: left;
     margin-top: 20px; }
-  .pose .related {
+  .pose-detail .related {
     height: 100px;
     display: flex;
     justify-content: space-around; }
-    .pose .related .box {
+    .pose-detail .related .box {
       border-radius: 15px;
       height: 100px;
       width: 100px;
