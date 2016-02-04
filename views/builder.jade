@@ -15,8 +15,8 @@ block content
           each category in categories
             option(value=category.id)= category.name  
     form.builder(action='/sequence' method='post')
-      div.buttons
-        button Save Sequence
+      button(type='button') 
+        a Save Sequence
 block scripts
   script.
     var username = !{JSON.stringify(username)};

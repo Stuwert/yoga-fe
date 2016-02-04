@@ -81,13 +81,11 @@ form.builder {
       width: 60px; }
   form.builder .sequence:first-of-type {
     align-self: flex-start; }
-  form.builder .buttons {
+  form.builder button {
     position: fixed;
     bottom: 15px;
     right: 15px;
     z-index: 2; }
-    form.builder .buttons button {
-      flex-grow: 3; }
 
 p.close {
   width: 40px;

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var knex = require('../db/knex');
+var db = require('../lib/db_favorites');
 
 var results = require('../tmp/results')
 
@@ -13,7 +14,13 @@ router.use(function(req, res, next) {
 
 //Gets all sequences favorited by the user.
 router.get('/:username/favorites', function(req, res, next){
+  db.get_user_favorites(req.params.uid, function(result){
+    res.send(result)
+  })
+})
 
+router.post('/derp', function(req, res, next){
+  console.log(req.body.sequence);
 })
 
 //Gets one unique sequence favorited by user.

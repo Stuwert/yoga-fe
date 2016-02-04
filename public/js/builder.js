@@ -1,6 +1,7 @@
 loadCategories(posecategories);
 
 $('.elements').on('click', 'h2', function(){
+  $('.elements').children('.element').remove();
   if($(this).parent().hasClass('category')){
     $.when(categoryCall($(this).html())).done(poseReturn).fail(fail);
   }else if($(this).parent().hasClass('sequence')){
@@ -18,8 +19,30 @@ $('select').change(function(){
   }else if ($('select').val() === 'all'){
     $.when(allPoseCall()).done(poseReturn).fail(fail)
   }else{
-    $.when(sequenceCall($('select').val())).done(sequenceReturn)
+    $.when(sequenceCall($('select').val())).done(sequenceReturn);
   }
+})
+
+$('button').click(function(){
+  var timeArray = $('form').find('input').toArray();
+  timeArray = timeArray.map(function(item){
+    return +$(item).val();
+  })
+  var sequenceArray = $('form').find('h4').toArray();
+  sequenceArray = sequenceArray.map(function(item){
+    return +$(item).attr('id');
+  })
+  $.ajax({
+    url: '/api/derp',
+    method: 'POST',
+    dataType: 'JSON',
+    traditional: 'true',
+    data: {
+      'sequence': sequenceArray,
+      'time': timeArray
+    }
+  })
+
 })
 
 var allPoseCall = function(){
@@ -31,15 +54,13 @@ var allPoseCall = function(){
 }
 
 function poseReturn(results){
-  console.log(results);
-  // results.forEach(function(item){
-  //   newPose(item.id, item.pose_name)
-  // })
+  results.forEach(function(item){
+    newPose(item.id, item.pose_name)
+  })
 }
 
 
 var categoryCall = function(value){
-  console.log(value);
   return $.ajax({
     url: 'https://young-shelf-28645.herokuapp.com/api/poses/cat?category=' + value,
     dataType: 'JSON',
