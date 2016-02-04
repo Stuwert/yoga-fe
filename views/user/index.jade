@@ -35,7 +35,7 @@ block content
       h4 My Sequences
       each sequence in sequences
         div.saved
-          h4= sequence.sequence_name
+          h4= sequence.name
           a(href='/users/#{user.id}/builder/#{sequence.id}') Edit
       button
         a(href='/users/#{user.id}/builder/new') New Sequence
