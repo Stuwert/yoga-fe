@@ -20,7 +20,7 @@ router.get('/:username/favorites', function(req, res, next){
 })
 
 router.post('/derp', function(req, res, next){
-  console.log(req.body.sequence);
+  console.log(req.body);
 })
 
 //Gets one unique sequence favorited by user.

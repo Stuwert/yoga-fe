@@ -39,6 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 function checkAuthentication(req,res,next){
   if(req.isAuthenticated()){
+    //Once id paths have changed, add && req.params.user_id === req.user.id
     next()
   }
   else{

@@ -40,9 +40,9 @@ $('button').click(function(){
     data: {
       'sequence': sequenceArray,
       'time': timeArray
+     }
     }
   })
-
 })
 
 var allPoseCall = function(){
