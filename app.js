@@ -38,12 +38,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 function checkAuthentication(req,res,next){
-  if(req.user){
-    console.log("This is working!");
+  if(req.isAuthenticated()){
     next()
   }
   else{
-    console.log("This is not working!");
     res.redirect('/auth')
   }
 }
