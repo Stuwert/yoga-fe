@@ -15,7 +15,7 @@ var storage = multer.diskStorage({
     callback(null, file.fieldname + '-' + Date.now());
   }
 });
-var upload = multer({storage: storage}).single('displayImage');
+
 
 function Sequences() {
   return knex('user_sequences');
@@ -146,12 +146,19 @@ router.get('/:id/profile/edit', function(req, res, next) {
 });
 
 router.post('/:id/profile', function(req,res,next){
+  var upload = multer({storage: storage}).single('displayImage');
   upload(req,res,function(err) {
       if(err) {
           console.log(err);
           return res.end("Error uploading file.");
       }
+      var fixedPath = req.file.path
+      fixed = fixedPath.replace('public','')
+      console.log(fixed);
+      Users().where('id', req.params.id).update({'image': fixed}).then(function(results){
+
       res.end("File is uploaded");
+    });
   });
 })
 
