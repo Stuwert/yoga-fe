@@ -10,12 +10,12 @@ block content
 
   main.user
     div.userInfo
-      img(src='http://placehold.it/200x200')
-      br
-    div.userInfo
-      form(action="/users/photos/"+user.id method="POST" enctype="multipart/form-data")
-        input(type="file", name="displayImage")
-        input(type="submit" value="change picture")
+      if !user.image
+        form(action="/users/photos/"+user.id method="POST" enctype="multipart/form-data")
+          input(type="file", name="displayImage")
+          input(type="submit" value="change picture")
+      else 
+        img(src=user.image)
       div.info
         p= "Location: " + user.city + ', ' + user.state
         ul

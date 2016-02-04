@@ -1,11 +1,22 @@
 loadCategories(posecategories);
 
-// sequence.forEach(function(item, i){
-//   $.when(getPose(item)).done(function(result){
-//
-//     newPose(result[0].id, result[0].pose_name, 'form.builder');
-//   })
-// })
+if(sequence){
+  if(sequence.length > 1){
+    sequence.forEach(function(item, i){
+      $.when(getPose(item)).done(function(result){
+
+        newPose(result[0].id, result[0].pose_name, 'form.builder');
+        console.log($('input').val());
+      })
+    })
+  }else{
+    $.when(getPose(sequence)).done(function(result){
+      newPose(result[0].id, result[0].pose_name, 'form.builder')
+    })
+    $('input').val(item);
+  }
+}
+
 
 function getPose (id){
   return $.ajax({
@@ -61,6 +72,7 @@ $('button').click(function(){
 
   console.log('times: ' + timeArray);
   console.log('seqs: ' + sequenceArray);
+  var restOfCall = sequence ? 
   $.post('/users/' + user_id + '/builder', {
     dataType: 'JSON',
     traditional: 'true',

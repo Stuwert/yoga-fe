@@ -24,5 +24,7 @@ block scripts
   if sequence 
     script.
       var sequence = !{JSON.stringify(sequence)}
+      var time = !{JSON.stringify(time)}
+      console.log(sequence, time);
   script(src='/js/builder.js')
       

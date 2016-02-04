@@ -19,10 +19,18 @@ router.get('/:user_id/builder/new', function(req, res, next) {
 
 /*GET builder edit page */
 router.get('/:user_id/builder/:id', function(req, res, next){
-  res.render('builder', {
-    results: results.results,
-    categories: categories
-  })
+  db.returnUserSequence(req.params.id, function(usersequence){
+    db.returnSequence(usersequence.sequence_id, function(sequence){
+      console.log(sequence, usersequence);
+      res.render('builder', {
+        sequence: sequence.sequence,
+        time: usersequence.timing,
+        categories: categories,
+        posecategories: posecategories,
+        user_id: req.params.user_id
+      })
+    })
+  });
 })
 
 
