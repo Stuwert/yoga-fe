@@ -1,13 +1,13 @@
 extends layout
   
 block title 
-  title Stuart's sequence Builder
+  title Sequence Builder
   
 block content
   header
     h1 New Sequence
     nav 
-      a(href='/users/' + user_id + '/') Profile
+      a(href='/users/#{user_id}') Profile
   main.builder
     nav.elements 
       div.selectbox
