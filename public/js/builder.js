@@ -20,6 +20,7 @@ function getPose (id){
 
 $('.elements').on('click', 'h2', function(){
   $('.elements').children('.element').remove();
+  $('.back').remove();
   if($(this).parent().hasClass('category')){
     $.when(categoryCall($(this).html())).done(poseReturn).fail(fail);
   }else if($(this).parent().hasClass('sequence')){
@@ -75,6 +76,7 @@ function poseReturn(results){
   $('.elements').append('<div><a class="back">Back</a><div>')
   $('.back').click(function(){
     $('.elements').children('.element').remove();
+    $('.back').remove();
     loadCategories(posecategories);
   })
   results.forEach(function(item){
