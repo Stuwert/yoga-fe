@@ -43,6 +43,7 @@ $('select').change(function(){
 })
 
 $('button').click(function(){
+  console.log(user_id);
   var timeArray = $('form').find('input').toArray();
   timeArray = timeArray.map(function(item){
     return +$(item).val();
@@ -51,18 +52,33 @@ $('button').click(function(){
   sequenceArray = sequenceArray.map(function(item){
     return +$(item).attr('id');
   })
-  $.post({
-    url: '/users/' + user_id + '/builder',
+
+  console.log('times: ' + timeArray);
+  console.log('seqs: ' + sequenceArray);
+  $.post('/users/' + user_id + '/builder', {
     dataType: 'JSON',
     traditional: 'true',
     data: {
       'sequence': sequenceArray,
       'time': timeArray
      }
-  }).always(function(thing){
-    alert('Your Sequence is Saved')
   })
+  .always(sequenceSave_complete)
+  .done(sequenceSave_success)
+  .fail(sequenceSave_fail)
 })
+
+function sequenceSave_complete(){
+  alert('post complete');
+}
+
+function sequenceSave_success(){
+  alert('your sequence is saved');
+}
+
+function sequenceSave_fail(){
+  alert('there was an error');
+}
 
 var allPoseCall = function(){
   return $.ajax({
