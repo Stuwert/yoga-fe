@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 function checkAuthentication(req,res,next){
-  if(req.user){
+  if(req.user != null){
     console.log("This is working!");
     next()
   }
