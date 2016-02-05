@@ -54,7 +54,6 @@ $('select').change(function(){
 })
 
 $('button').click(function(){
-  console.log(user_id);
   var timeArray = $('form').find('input').toArray();
   timeArray = timeArray.map(function(item){
     return +$(item).val();
@@ -64,8 +63,6 @@ $('button').click(function(){
     return +$(item).attr('id');
   })
 
-  console.log('times: ' + timeArray);
-  console.log('seqs: ' + sequenceArray);
   var restOfCall = sequence ? "/" + usersequence_id : "/"
   $.post('/users/' + user_id + '/builder' + restOfCall, {
     dataType: 'JSON',
@@ -86,12 +83,10 @@ function sequenceSave_complete(){
 
 function sequenceSave_success(){
   alert('your sequence is saved');
-  console.log("Test");
   window.location.href = '/users/profile/' + user_id
 }
 
 function sequenceSave_fail(result){
-  console.log(result);
   alert('there was an error');
 }
 
@@ -141,7 +136,6 @@ var sequenceCall = function(value){
 }
 
 function sequenceReturn(results){
-  // console.log(results);
   results.forEach(function(item){
     var newDiv = '<div class="element sequence"><h2 id="' + item.pose_id + '">' + item.pose_name +  '</a></div>'
     $(newDiv).appendTo('.elements');

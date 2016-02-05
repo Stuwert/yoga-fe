@@ -28,9 +28,6 @@ router.get('/:user_id', function(req, res, next){
 router.get('/profile/:user_id', function(req, res, next) {
   Users().where('id', req.params.user_id).first().then(function(user){
     Sequences().where('user_id', req.params.user_id).then(function(sequences){
-      console.log('ROUTES/USERS: rendering');
-      console.log(user);
-      console.log(sequences);
       res.render('user/index', {
         user: user,
         sequences: sequences
