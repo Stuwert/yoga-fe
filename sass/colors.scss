@@ -1,0 +1,56 @@
+$button-color: #8980F5;
+$white-color: #DEE7E7;
+$grey-color: #A6A6A8;
+$dark-font-color: #11B6C3;
+$box-color: #8499B1;
+$dark-background-color: #49306B;
+$light-brown: #E2DBBE;
+$dark-brown: #A0A083;
+$fonts: #7B6D8D;
+$soft-background-color: #CFBCDF;
+$light-blue: #A0B9C6;
+$slate-grey: #798478;
+$default-boxshadow:  5px 5px 2px 2px rgba(40, 40, 40, 0.55);
+
+button{
+  background-color: $button-color;
+}
+
+.selectbox {
+  background-color: $soft-background-color;
+}
+
+.sequence, .pose, .category{
+  background-color: $box-color;
+  box-shadow: $default-boxshadow
+}
+
+header{
+  background-color: $dark-background-color;
+  a{
+    color: $white-color;
+  }
+}
+
+.elements{
+  background-color: $soft-background-color;
+}
+
+.form{
+  border: 5px solid $dark-background-color;
+  background-color: white;
+}
+
+h1{
+  color: $white-color;
+}
+
+button a{
+  color: $white-color;
+}
+
+.splash{
+  h1, p{
+    color: #11B6C3;
+  }
+}

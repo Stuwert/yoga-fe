@@ -1,0 +1,46 @@
+$h1-font-size: 40px;
+$title-font: 'LeagueSpartan-Bold';
+$body-font: 'Fontin';
+$backup-font: 'Helvetica';
+
+@font-face{
+  font-family: 'Fontin';
+  src: url('Fontin-Regular.otf');
+}
+
+@font-face{
+  font-family: 'LeagueSpartan-Bold';
+  src: url('LeagueSpartan-Bold.otf');
+}
+
+
+h1{
+  text-align: center;
+  margin: 0;
+  font-family: 'LeagueSpartan-Bold';
+}
+
+h1{
+  font-size: $h1-font-size;
+}
+
+p, button, label, input,  h2, h3, h4, h5, h6, ul, li, a{
+  font-family: $body-font;
+  font-size: $h1-font-size * 5 / 12;
+  color: black;
+}
+h2{
+  font-size: $h1-font-size * 5/6;
+}
+h3{
+  font-size: $h1-font-size * 4/6;
+}
+h4{
+  font-size: $h1-font-size * 3/6;
+}
+h5{
+  font-size: $h1-font-size * 2/6;
+}
+h6{
+  font-size: $h1-font-size * 1/6;
+}

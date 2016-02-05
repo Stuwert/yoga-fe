@@ -1,0 +1,41 @@
+.pose-detail{
+  width: 65%;
+  margin-left: 17.5%;
+  margin-top: 30px;
+  img{
+    float: left;
+    height: 40%;
+    width: 40%;
+  }
+  h2{
+    text-align: right;
+    margin-bottom: 20px;
+  }
+  .transalt{
+    width: 60%;
+    float: left;
+    text-align: right;
+    li, p{
+      margin: 10px 0;
+      font-size: 20px;
+    }
+  }
+  .descriptions{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+  }
+  .related{
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    .box{
+      border-radius: 15px;
+      height: 100px;
+      width: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
