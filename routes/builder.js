@@ -40,16 +40,14 @@ router.post('/:user_id/builder', function(req, res, next){
 
   // TODO: Sequence Builder needs a Public/Private? option
   // TODO: Sequence Builder needs a Name? field
-  db.addIfDoesNotExist(sequence, function(results){
-    db.createUserSequence({
-      'user_id': user_id,
-      'sequence_id': results[0],
-      'name': 'sequencename',
-      'is_public': true,
-      'timing': JSON.stringify(times)
-    }, function(result){
-      res.send('Bing Bong')
-    });
+  db.createUserSequence({
+    'user_id': user_id,
+    'sequence_id': results[0],
+    'name': 'sequencename',
+    'is_public': true,
+    'timing': JSON.stringify(times)
+  }, function(result){
+    res.send('Bing Bong')
   });
 })
 
