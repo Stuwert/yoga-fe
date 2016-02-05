@@ -19,14 +19,14 @@ block content
       else 
         img(src=user.image)
       div.info
-        h4 My Profile
-        p= "Location: " + user.city + ', ' + user.state
+        h4 Studio:
+        p= user.studio
         ul
           li Specialities:
           if user.speciality
             li= user.speciality
         p= "Bio: " + user.bio
-        .info_footer Edit
+        a.info_footer Edit
     div.favoriteSequences.box
       h4 Favorite Sequences
       if user.favorites 

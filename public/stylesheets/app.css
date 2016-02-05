@@ -80,6 +80,9 @@ button a {
 .splash h1, .splash p {
   color: #11B6C3; }
 
+.user .userInfo {
+  background-color: #CFBCDF; }
+
 @font-face {
   font-family: 'Fontin';
   src: url("Fontin-Regular.otf"); }
