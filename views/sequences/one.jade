@@ -6,11 +6,13 @@ block content
   header 
     h1= name 
     nav
-      a(href='/') All Poses
+      a(href='/sequences') All Sequences
+      if user.exists
+        a(href='/users/' + user.id + '/profile')
   main.singlesequence 
 block scripts
   script.
-    var sequence = !{JSON.stringify(sequence_id)}
-    var time = !{JSON.stringify(timing)}
+    var sequence = !{JSON.stringify(usersequence.sequence_id)}
+    var time = !{JSON.stringify(usersequence.timing)}
   script(src='/js/sequences.js')
     

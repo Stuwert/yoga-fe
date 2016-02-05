@@ -1,0 +1,31 @@
+main.personalSequences {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+
+.saved {
+  width: 400px;
+  height: 150px;
+  border-radius: 15px;
+  margin: 20px 0;
+  position: relative; }
+  .saved .body {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 80px; }
+  .saved .header {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px; }
+  .saved .body {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; }
+
+.box {
+  margin-top: 20px;
+  float: left;
+  width: 31.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }

@@ -1,5 +1,25 @@
 extends ../layout
 
-block header
-
+block title
+  title All 
 block content
+  header
+    h1 Public Sequences
+    nav
+      if user.exists
+        a(href='/users/' + user.id + '/profile')= user.name + "'s Profile'"
+      else
+        a(href='/') Home
+  main.personalSequences.box
+    each sequence in sequences
+      div.saved
+        div.header
+          h4 
+            a(href='/sequences/' + sequence.id ) #{sequence.name}
+        div.body
+          div
+            p= "Created By: "
+            p= sequence.first_name + " " + sequence.last_name
+          if user.exists
+            a() 
+              button.small Favorite 
