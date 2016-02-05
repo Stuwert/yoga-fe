@@ -155,7 +155,7 @@ router.post('/:id/profile', function(req,res,next){
       var fixedPath = req.file.path
       fixed = fixedPath.replace('public','')
       console.log(fixed);
-      Users().where('id', req.params.id).update({'image': fixed}).then(function(results){
+      Users().where('id', req.params.id).update({'image': fixed, bio: req.body.bio, studio: req.body.studio, speciality: req.body.speciality}).then(function(results){
 
       res.redirect('/auth');
     });

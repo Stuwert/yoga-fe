@@ -9,13 +9,13 @@ block content
     input(type="file", name="displayImage" id="fileUpload")
     label(for="studio") Studio
     input(type="text" name="studio")
-    label(for="style") Speciality
-    Select(name="style")
+    label(for="speciality") Speciality
+    Select(name="speciality")
       if styles
         for style in styles
           option=style
 
     label(for="password" name="bio") Bio
-    textarea(type="password" name="password")
+    textarea(name="bio")
     button
       a Sign-up
