@@ -67,7 +67,7 @@ $('button').click(function(){
   console.log(sequenceName);
 
   var restOfCall = sequence ? "/" + usersequence_id : "/"
-  $.post('/users/' + user_id + '/builder' + restOfCall, {
+  $.post('/users/' + user_id + '/sequences' + restOfCall, {
     dataType: 'JSON',
     traditional: 'true',
     data: {
@@ -86,7 +86,7 @@ function sequenceSave_complete(){
 }
 function sequenceSave_success(){
   alert('your sequence is saved');
-  window.location.href = '/users/profile/' + user_id
+  window.location.href = '/users/' + user_id + '/profile';
 }
 function sequenceSave_fail(result){
   alert('there was an error');

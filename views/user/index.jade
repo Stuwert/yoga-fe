@@ -6,7 +6,7 @@ block title
 block content
   header
 
-    h1= user.first_name + " "  + user.last_name + "'s Profile"
+    h1 #{capitalize(user.first_name)} #{capitalize(user.last_name)}'s Profile
     nav
       a(href='/auth/logout') Logout
 
@@ -47,10 +47,10 @@ block content
           div.header
             h4 #{sequence.name}
           div.body
-            form(method="POST" action="/users/#{user.id}/builder/#{sequence.id}/delete" id="form_delete")
+            form(method="POST" action="/users/#{user.id}/sequences/#{sequence.id}/delete" id="form_delete")
               a(href='javascript:{}' onclick='document.getElementById("form_delete").submit();') 
                 button.small Delete
-            a(href='/users/#{user.id}/builder/#{sequence.id}')
+            a(href='/users/#{user.id}/sequences/#{sequence.id}')
               button.small  Edit
-      a(href='/users/#{user.id}/builder/new'): button New Sequence
+      a(href='/users/#{user.id}/sequences/new'): button New Sequence
     
