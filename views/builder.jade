@@ -11,6 +11,7 @@ block content
   main.builder
     nav.elements 
       div.selectbox
+          input(type="text" id="search")
         select
           each category in categories
             option(value=category.id)= category.name  
