@@ -458,5 +458,21 @@ nav .sequence:first-of-type, nav .pose:first-of-type, nav .category:first-of-typ
       justify-content: center;
       align-items: center; }
 
+.singlesequence .pose {
+  border-radius: 0;
+  background-color: transparent;
+  box-shadow: none;
+  width: 80%;
+  margin-left: 10%;
+  height: 300px;
+  border-bottom: 1px solid black;
+  position: relative; }
+  .singlesequence .pose img {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+
 * {
   box-sizing: border-box; }

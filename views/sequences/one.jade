@@ -1,0 +1,16 @@
+extends ../layout
+
+block header
+
+block content
+  header 
+    h1= name 
+    nav
+      a(href='/') All Poses
+  main.singlesequence 
+block scripts
+  script.
+    var sequence = !{JSON.stringify(sequence_id)}
+    var time = !{JSON.stringify(timing)}
+  script(src='/js/sequences.js')
+    

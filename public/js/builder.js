@@ -12,7 +12,6 @@ if(sequence){
       newPose(result[0].id, result[0].pose_name, returnImage(result[0].pose_name), 'form.builder', time)
     })
   }
-
 }
 
 function getPose (id){
@@ -82,7 +81,7 @@ $('button').click(function(){
   console.log(sequenceName);
 
   var restOfCall = sequence ? "/" + usersequence_id : "/"
-  $.post('/users/' + user_id + '/builder' + restOfCall, {
+  $.post('/users/' + user_id + '/sequences' + restOfCall, {
     dataType: 'JSON',
     traditional: 'true',
     data: {
@@ -101,7 +100,7 @@ function sequenceSave_complete(){
 }
 function sequenceSave_success(){
   alert('your sequence is saved');
-  window.location.href = '/users/profile/' + user_id
+  window.location.href = '/users/' + user_id + '/profile';
 }
 function sequenceSave_fail(result){
   alert('there was an error');
