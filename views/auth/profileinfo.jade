@@ -3,10 +3,10 @@ extends ../layout
 block title
 block content
   header
-    h1 Add more info #{user.first_name} #{user.last_name}!
+    h1 Tell us more #{user.first_name} #{user.last_name}
   form.form(action="/auth/"+user.id+"/profile" method="POST" enctype="multipart/form-data")
     label(for="displayImage") Add profile picture
-    input(type="file", name="displayImage")
+    input(type="file", name="displayImage" id="fileUpload")
     label(for="studio") Studio
     input(type="text" name="studio")
     label(for="style") Speciality

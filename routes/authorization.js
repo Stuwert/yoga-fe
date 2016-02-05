@@ -157,7 +157,7 @@ router.post('/:id/profile', function(req,res,next){
       console.log(fixed);
       Users().where('id', req.params.id).update({'image': fixed}).then(function(results){
 
-      res.end("File is uploaded");
+      res.redirect('/auth');
     });
   });
 })
