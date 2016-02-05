@@ -35,19 +35,20 @@ router.get('/:user_id/builder/:usersequence_id', function(req, res, next){
 /*CREATE a new sequence*/
 router.post('/:user_id/builder', function(req, res, next){
   var user_id = req.params.user_id;
-  var times = req.body['data[time][]'];
-  var sequence = req.body['data[sequence][]'];
-
+  var times = JSON.stringify(req.body['data[time][]']);
+  var sequence = JSON.stringify(req.body['data[sequence][]']);
+  var name = req.body['data[name]'];
   // TODO: Sequence Builder needs a Public/Private? option
   // TODO: Sequence Builder needs a Name? field
+  // TODO: don't let pressing enter submit the form :(
   db.createUserSequence({
     'user_id': user_id,
-    'sequence_id': results[0],
-    'name': 'sequencename',
+    'sequence_id': sequence,
+    'name': name,
     'is_public': true,
-    'timing': JSON.stringify(times)
+    'timing': times
   }, function(result){
-    res.send('Bing Bong')
+    res.redirect('/users/profile/'+user_id);
   });
 })
 

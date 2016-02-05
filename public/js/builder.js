@@ -23,6 +23,7 @@ function getPose (id){
   })
 }
 
+
 $('.elements').on('click', 'h2', function(){
   $('.elements').children('.element').remove();
   $('.back').remove();
@@ -57,11 +58,12 @@ $('button').click(function(){
   var timeArray = $('form').find('input').toArray();
   timeArray = timeArray.map(function(item){
     return +$(item).val();
-  })
+  }).slice(1);
   var sequenceArray = $('form').find('h4').toArray();
   sequenceArray = sequenceArray.map(function(item){
     return +$(item).attr('id');
   })
+  var sequenceName = $('#name').val();
 
   var restOfCall = sequence ? "/" + usersequence_id : "/"
   $.post('/users/' + user_id + '/builder' + restOfCall, {
@@ -69,7 +71,8 @@ $('button').click(function(){
     traditional: 'true',
     data: {
       'sequence': sequenceArray,
-      'time': timeArray
+      'time': timeArray,
+      'name': sequenceName
      }
   })
   .always(sequenceSave_complete)
@@ -80,12 +83,10 @@ $('button').click(function(){
 function sequenceSave_complete(){
   alert('post complete');
 }
-
 function sequenceSave_success(){
   alert('your sequence is saved');
   window.location.href = '/users/profile/' + user_id
 }
-
 function sequenceSave_fail(result){
   alert('there was an error');
 }
