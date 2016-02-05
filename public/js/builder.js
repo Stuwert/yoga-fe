@@ -4,12 +4,12 @@ if(sequence){
   if(sequence.length > 1){
     sequence.forEach(function(item, i){
       $.when(getPose(item)).done(function(result){
-        newPose(result[0].id, result[0].pose_name, 'form.builder', time[i]);
+        newPose(result[0].id, result[0].pose_name, returnImage(result[0].pose_name), 'form.builder', time[i]);
       })
     })
   }else{
     $.when(getPose(sequence)).done(function(result){
-      newPose(result[0].id, result[0].pose_name, 'form.builder', time)
+      newPose(result[0].id, result[0].pose_name, returnImage(result[0].pose_name), 'form.builder', time)
     })
   }
 
@@ -102,7 +102,7 @@ var allPoseCall = function(){
 
 function poseReturn(results){
   results.forEach(function(item){
-    newPose(item.id, item.pose_name, '.elements')
+    newPose(item.id, item.pose_name, returnImage(item.pose_name), '.elements')
   })
 }
 
@@ -152,8 +152,8 @@ function loadCategories(array){
   })
 }
 
-function newPose(id, name, appendTo, time){
-  var newDiv = '<div class="pose element"><p class="close">X</p><h4 id="' + id + '"><a href="/poses/'+ id +'">' + name + '</a></h4><label>Time</label><input type="number" value="' + time + '"><img src="http://placehold.it/250x250"></input></div>'
+function newPose(id, name, image, appendTo, time){
+  var newDiv = '<div class="pose element"><p class="close">X</p><h4 id="' + id + '"><a href="/poses/'+ id +'">' + name + '</a></h4><label>Time</label><input type="number" value="' + time + '"><img src="/img/photos/' + image + '"></input></div>'
   $(newDiv).appendTo(appendTo);
 }
 
@@ -165,4 +165,16 @@ function newSequence(name, id){
 function newCategory(name){
   var newDiv = '<div class="category element notdraggable"><h2 id="'+ name + '">' + name + '</h2></div>'
   $(newDiv).appendTo('.elements')
+}
+
+
+//pass it a name and get back a pose file path
+function returnImage(name){
+  var returnable;
+  posefiles.forEach(function(item){
+    if (item.pose_name == name){
+      returnable = item.file_reference;
+    }
+  })
+  return returnable;
 }

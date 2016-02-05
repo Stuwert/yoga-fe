@@ -53,11 +53,16 @@ button {
   background-color: #11B6C3; }
 
 .selectbox {
-  background-color: #CFBCDF; }
+  background-color: #DEE7E7; }
 
-.sequence, .pose, .category {
-  background-color: #8499B1;
+.sequence, .pose {
+  background-color: #CFBCDF;
   box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
+
+.category {
+  background-color: #49306B; }
+  .category h2 {
+    color: #DEE7E7; }
 
 header {
   background-color: #49306B; }
@@ -65,7 +70,7 @@ header {
     color: #DEE7E7; }
 
 .elements {
-  background-color: #CFBCDF; }
+  background-color: #DEE7E7; }
 
 .form {
   border: 5px solid #49306B;

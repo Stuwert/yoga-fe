@@ -17,12 +17,19 @@ button{
 }
 
 .selectbox {
-  background-color: $soft-background-color;
+  background-color: $white-color;
 }
 
-.sequence, .pose, .category{
-  background-color: $box-color;
-  box-shadow: $default-boxshadow
+.sequence, .pose{
+  background-color: $soft-background-color;
+  box-shadow: $default-boxshadow;
+}
+
+.category{
+  background-color: $dark-background-color;
+  h2{
+    color: $white-color;
+  }
 }
 
 header{
@@ -33,7 +40,7 @@ header{
 }
 
 .elements{
-  background-color: $soft-background-color;
+  background-color: $white-color;
 }
 
 .form{

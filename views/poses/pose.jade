@@ -16,4 +16,18 @@ block content
       p= "Difficulty " + pose.difficulty
       p= pose.description
       p= pose.benefits
+block scripts
+  script.
+    var name = !{JSON.stringify(pose.pose_name)}
+    $('img').attr('src', '/img/photos/' + returnImage(name));
+    function returnImage(name){
+      var returnable;
+      posefiles.forEach(function(item){
+        //- console.log(item);
+        if (item.pose_name == name){
+          returnable = item.file_reference;
+        }
+      })
+      return returnable;
+    }  
     
