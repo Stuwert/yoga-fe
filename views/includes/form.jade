@@ -1,5 +1,5 @@
-label(for="displayImage") Add profile picture
-input(type="file", name="displayImage" id="fileUpload")
+label(for="image") Add profile picture
+input(type="file", name="image" id="fileUpload")
 
 label(for="studio") Studio
 input(type="text" name="studio" value= (user.studio)?user.studio:undefined)
@@ -11,15 +11,15 @@ label(for="state") State
 Select(name="state" id="state")
   if states
     for state in states
-      option=state
+      option(value='#{state}' selected=(user.state)? user.state === state ? 'selected':undefined:undefined)= state
 
 label(for="speciality") Speciality
 Select(name="speciality")
   if styles
     for style in styles
-      option=style
+      option(value='#{style}' selected=(user.speciality) ? user.speciality === style ? 'selected' : undefined : undefined) #{style}
 
 label(for="bio" name="bio") Bio
-textarea(name="bio" id="bio")
+textarea(name="bio" id="bio")= user.bio ? user.bio : ''
 button
   a Submit
