@@ -107,3 +107,6 @@ nav .close, .gu-mirror .close {
 
 nav .sequence:first-of-type, nav .pose:first-of-type, nav .category:first-of-type {
   margin-top: 100px; }
+
+#search {
+  visibility: hidden; }

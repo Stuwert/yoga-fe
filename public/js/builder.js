@@ -27,6 +27,7 @@ $('.elements').on('click', 'h2', function(){
   $('.elements').children('.element').remove();
   $('.back').remove();
   if($(this).parent().hasClass('category')){
+    $("#search").css("visibility", "visible")
     $.when(categoryCall($(this).html())).done(poseReturn).fail(fail);
     $('.elements').append('<div><a class="back">Back</a><div>')
     $('.back').click(function(){
@@ -46,11 +47,25 @@ $('select').change(function(){
   //Add ajax call here.
   if($('select').val() === '1' ){
     loadCategories(posecategories);
+    $("#search").css('visibility', 'hidden')
   }else if ($('select').val() === 'all'){
     $.when(allPoseCall()).done(poseReturn).fail(fail)
+    $("#search").css('visibility', 'visible')
   }else{
     $.when(sequenceCall($('select').val())).done(sequenceReturn);
+    $("#search").css('visibility', 'visible')
   }
+})
+
+$('#search').keyup(function(){
+   var searchstring = $('#search').val()
+   var array = $('.pose').toArray()
+   $('.pose').css('display', 'flex')
+   array.forEach(function(x){
+      if(! $(x).find('h4').text().includes(searchstring)){
+         $(x).css('display', 'none')
+      }
+    })
 })
 
 $('button').click(function(){

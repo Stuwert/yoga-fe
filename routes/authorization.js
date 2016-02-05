@@ -82,7 +82,12 @@ router.get('/facebook/callback',
   }),
   function(req, res, next) {
     Users().select().where('fb_id', req.user.id).first().then(function(result){
+      if(result.speciality == null) {
+      res.redirect('/auth/'+result.id+'/profile/edit')
+    }
+    else{
       res.redirect('/users/'+result.id+'/profile')
+    }
     })
   });
 //  function(req,res,next){;
