@@ -9,6 +9,13 @@ block content
     input(type="file", name="displayImage" id="fileUpload")
     label(for="studio") Studio
     input(type="text" name="studio")
+    label(for="city") City
+    input(type="text" name="city" id="city")
+    label(for="state") State
+    Select(name="state" id="state")
+      if states
+        for state in states
+          option=state
     label(for="speciality") Speciality
     Select(name="speciality")
       if styles
@@ -16,6 +23,6 @@ block content
           option=style
 
     label(for="password" name="bio") Bio
-    textarea(name="bio")
+    textarea(name="bio" id="bio")
     button
       a Sign-up

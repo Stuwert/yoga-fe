@@ -137,7 +137,8 @@ router.get('/:id/profile/edit', function(req, res, next) {
 
     res.render('auth/profileinfo', {
       user: results,
-      styles: server.yogaStyles
+      styles: server.yogaStyles,
+      states: server.states
     })
   })
 });
@@ -152,7 +153,7 @@ router.post('/:id/profile', function(req,res,next){
       var fixedPath = req.file.path
       fixed = fixedPath.replace('public','')
       console.log(fixed);
-      Users().where('id', req.params.id).update({'image': fixed, bio: req.body.bio, studio: req.body.studio, speciality: req.body.speciality}).then(function(results){
+      Users().where('id', req.params.id).update({'image': fixed, bio: req.body.bio, studio: req.body.studio, speciality: req.body.speciality, city: req.body.city, state: req.body.state}).then(function(results){
 
       res.redirect('/auth');
     });
