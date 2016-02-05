@@ -13,3 +13,7 @@ form.form {
     border: 1px solid black;
     height: 20px;
     font-size: 16px; }
+
+#fbLogin {
+  height: 35px;
+  width: 160px; }

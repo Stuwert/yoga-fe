@@ -145,6 +145,10 @@ form.form {
     height: 20px;
     font-size: 16px; }
 
+#fbLogin {
+  height: 35px;
+  width: 160px; }
+
 .flex-column-center, form.form {
   display: flex;
   flex-direction: column;
