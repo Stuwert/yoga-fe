@@ -13,10 +13,10 @@ function Users(){
 }
 
 router.get('/:user_id', function(req, res, next){
-  res.redirect('/users/profile/' + req.params.user_id);
+  res.redirect('/users/' + req.params.user_id + '/profile');
 });
 
-router.get('/profile/:user_id', function(req, res, next) {
+router.get('/:user_id/profile', function(req, res, next) {
   Users().where('id', req.params.user_id).first().then(function(user){
     Sequences().where('user_id', req.params.user_id).then(function(sequences){
       console.log(sequences);

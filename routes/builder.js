@@ -51,7 +51,7 @@ router.post('/:user_id/builder', function(req, res, next){
     'is_public': true,
     'timing': times
   }, function(result){
-    res.redirect('/users/profile/'+user_id);
+    res.redirect('/users/'+user_id+'/profile');
   });
 })
 

@@ -55,7 +55,7 @@ router.post('/login', function(req, res, next) {
       if (err)
         return next(err);
       console.log('logging in user ' + user.id);
-      return res.redirect('/users/profile/' + user.id);
+      return res.redirect('/users/' + user.id + '/profile');
     });
 
   })(req, res, next);
@@ -82,7 +82,7 @@ router.get('/facebook/callback',
   }),
   function(req, res, next) {
     Users().select().where('fb_id', req.user.id).first().then(function(result){
-      res.redirect('/users/profile/'+result.id)
+      res.redirect('/users/'+result.id+'/profile')
     })
   });
 //  function(req,res,next){;
