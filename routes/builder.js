@@ -9,7 +9,7 @@ var posecategories = require('../db/posecategories')
 
 
 /* GET new builder page. */
-router.get('/:user_id/builder/new', function(req, res, next) {
+router.get('/:user_id/sequences/new', function(req, res, next) {
   res.render('builder', {
     results: results.results,
     categories: categories,
@@ -19,7 +19,7 @@ router.get('/:user_id/builder/new', function(req, res, next) {
 });
 
 /*GET builder edit page */
-router.get('/:user_id/builder/:usersequence_id', function(req, res, next){
+router.get('/:user_id/sequences/:usersequence_id', function(req, res, next){
   console.log("This works?");
   db.returnUserSequence(req.params.usersequence_id, function(usersequence){
     res.render('builder', {
@@ -36,13 +36,12 @@ router.get('/:user_id/builder/:usersequence_id', function(req, res, next){
 
 
 /*CREATE a new sequence*/
-router.post('/:user_id/builder', function(req, res, next){
+router.post('/:user_id/sequences', function(req, res, next){
   var user_id = req.params.user_id;
   var times = JSON.stringify(req.body['data[time][]']);
   var sequence = JSON.stringify(req.body['data[sequence][]']);
   var name = req.body['data[name]'];
   // TODO: Sequence Builder needs a Public/Private? option
-  // TODO: Sequence Builder needs a Name? field
   // TODO: don't let pressing enter submit the form :(
   db.createUserSequence({
     'user_id': user_id,
@@ -56,7 +55,7 @@ router.post('/:user_id/builder', function(req, res, next){
 })
 
 /* UPDATE: Edit an existing sequence*/
-router.post('/:user_id/builder/:usersequence_id', function(req, res, next){
+router.post('/:user_id/sequences/:usersequence_id', function(req, res, next){
   var obj = {};
   obj['id'] = req.params.usersequence_id;
   obj['user_id'] = req.params.user_id;
@@ -66,12 +65,12 @@ router.post('/:user_id/builder/:usersequence_id', function(req, res, next){
 
 
   db.updateUserSequence(obj, function(results){
-    res.redirect('/users/' + req.params.user_id +'/builder/'+ req.params.usersequence_id);
+    res.redirect('/users/' + req.params.user_id +'/sequences/'+ req.params.usersequence_id);
   })
 })
 
 /* DELETE a sequence */
-router.post('/:user_id/builder/:usersequence_id/delete', function(req, res, next){
+router.post('/:user_id/sequences/:usersequence_id/delete', function(req, res, next){
   db.deleteUserSequence(req.params.usersequence_id, function(result){
     res.redirect('/users/' + req.params.user_id);
   });

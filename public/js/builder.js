@@ -67,7 +67,7 @@ $('button').click(function(){
   console.log(sequenceName);
 
   var restOfCall = sequence ? "/" + usersequence_id : "/"
-  $.post('/users/' + user_id + '/builder' + restOfCall, {
+  $.post('/users/' + user_id + '/sequences' + restOfCall, {
     dataType: 'JSON',
     traditional: 'true',
     data: {
