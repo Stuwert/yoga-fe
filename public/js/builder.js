@@ -9,7 +9,7 @@ if(sequence){
     })
   }else{
     $.when(getPose(sequence)).done(function(result){
-      newPose(result[0].id, result[0].pose_name, 'form.builder')
+      newPose(result[0].id, result[0].pose_name, 'form.builder', time)
     })
   }
 

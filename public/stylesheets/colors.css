@@ -28,3 +28,9 @@ button a {
 
 .splash h1, .splash p {
   color: #11B6C3; }
+
+.user .saved .header {
+  background-color: #49306B; }
+  .user .saved .header h4 {
+    color: #DEE7E7;
+    text-align: center; }

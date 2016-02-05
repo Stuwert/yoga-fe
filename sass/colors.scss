@@ -54,3 +54,15 @@ button a{
     color: #11B6C3;
   }
 }
+
+.user{
+  .saved{
+    .header{
+      background-color: $dark-background-color;
+      h4{
+        color: $white-color;
+        text-align: center;
+      }
+    }
+  }
+}
