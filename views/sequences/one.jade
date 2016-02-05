@@ -6,9 +6,9 @@ block content
   header 
     h1= name 
     nav
-    if user.exists
-      a(href='/users/' + user.id + '/profile')= user.name + "'s Profile'"
-      a(href='/sequences') All Sequences
+      if user.exists
+        a(href='/users/' + user.id + '/profile')= user.name + "'s Profile'"
+        a(href='/sequences') All Sequences
   main.singlesequence 
 block scripts
   script.
