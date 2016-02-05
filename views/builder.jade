@@ -16,7 +16,7 @@ block content
             option(value=category.id)= category.name  
     form.builder(action='/sequence' method='post')
       label(for="name") Name
-        input(type="text" id="name" name="name" placeholder="sequence name")
+        input(type="text" id="name" name="name" placeholder="sequence name" value= (name)?name:undefined)
       button(type='button') 
         a Save Sequence
 block scripts
