@@ -49,13 +49,17 @@
   border-radius: 15px;
   margin: 20px 0;
   position: relative; }
-  .user .saved .header, .user .saved .body {
-    border: 1px solid black; }
   .user .saved .body {
     display: flex;
     align-items: flex-end;
     justify-content: center;
     height: 80px; }
+  .user .saved .header {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px; }
+  .user .saved .body {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; }
 
 .user .box {
   margin-top: 20px;

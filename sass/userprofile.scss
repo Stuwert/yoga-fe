@@ -56,14 +56,19 @@
     border-radius: 15px;
     margin: 20px 0;
     position: relative;
-    .header, .body{
-      border: 1px solid black;
-    }
     .body{
       display: flex;
       align-items: flex-end;
       justify-content: center;
       height: 80px;
+    }
+    .header{
+      border-top-right-radius: 10px;
+      border-top-left-radius: 10px;
+    }
+    .body{
+      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 10px;
     }
   }
   .box{

@@ -19,7 +19,8 @@ router.get('/:user_id/builder/new', function(req, res, next) {
 });
 
 /*GET builder edit page */
-router.get('`/:user_id/builder/`:usersequence_id', function(req, res, next){
+router.get('/:user_id/builder/:usersequence_id', function(req, res, next){
+  console.log("This works?");
   db.returnUserSequence(req.params.usersequence_id, function(usersequence){
     res.render('builder', {
       sequence: usersequence.sequence_id,

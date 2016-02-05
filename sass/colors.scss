@@ -57,12 +57,19 @@ button a{
 
 .user{
   .saved{
+    box-shadow: $default-boxshadow;
     .header{
       background-color: $dark-background-color;
       h4{
         color: $white-color;
         text-align: center;
       }
+    }
+    .body{
+      background-color: $white-color;
+    }
+    button{
+      box-shadow: none;
     }
   }
 }
