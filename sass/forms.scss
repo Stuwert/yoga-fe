@@ -1,0 +1,19 @@
+form.form{
+  margin: 20px auto;
+  width: 375px;
+  height: 450px;
+  @extend .flex-column-center;
+  justify-content: center;
+  justify-content: space-around;
+  border-radius: 15px;
+  h2, h3, p{
+    color: black;
+    text-align: center;
+  }
+  input{
+    width: 75%;
+    border: 1px solid black;
+    height: 20px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,138 @@
+.builder{
+  width: 100vw;
+  height: 90vh;
+}
+
+.elements{
+  height: 100%;
+  width: 33%;
+  margin: 0;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+  float: left;
+  height: 100%;
+  padding-top: 50px;
+  .element{
+    width: 200px;
+    height: 200px;
+    margin: 35px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    *{
+      display: none;
+    }
+    h2, a, h4{
+      display: inline;
+      text-align: center;
+    }
+    img{
+      width: 120px;
+      height: 120px;
+      display: inline;
+    }
+  }
+  .selectbox{
+    width: 33%;
+    height: 50px;
+    position: fixed;
+    top: 10%;
+    font-size: 30px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    select{
+
+    }
+    option{
+      font-size: 16px;
+      text-align: center;
+
+    }
+  }
+}
+
+form.builder{
+  width: 66%;
+  height: 100%;
+  float: left;
+  align-items: center;
+  overflow-y: scroll;
+  position: relative;
+  padding-top: 30px;
+  padding-bottom: 80px;
+  .pose {
+    width: 250px;
+    height: 250px;
+    margin-top: 50px;
+    display: relative;
+    right: -400px;
+    img{
+      width: 200px;
+      height: 200px;
+      margin: 25px;
+    }
+    h4, input, label{
+      position: absolute;
+      left: -350px;
+    }
+    h4{
+      top: 10px;
+      font-size: 30px;
+      width: 250px;
+    }
+    .categories{
+      em{
+        text-decoration: underline;
+      }
+      top: 50px;
+      font-size: 18px;
+    }
+    label{
+      top: 100px;
+    }
+    input{
+      top: 120px;
+      width: 60px;
+    }
+  }
+  .sequence:first-of-type{
+    align-self: flex-start;
+  }
+  button{
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    z-index: 2;
+  }
+}
+
+p.close{
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  font-size: 40px;
+  text-align: center;
+  padding-top: 5px;
+  position: absolute;
+  top: 0px;
+  right: -5px;
+}
+
+
+nav .close, .gu-mirror .close{
+  visibility: hidden;
+}
+
+
+.sequence, .pose, .category {
+  position: relative;
+  border-radius: 15px;
+}
+
+nav .sequence:first-of-type, nav .pose:first-of-type, nav .category:first-of-type{
+  margin-top: 100px;
+}
