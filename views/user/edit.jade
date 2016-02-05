@@ -4,8 +4,8 @@ block title
 block content
   header
     h1 Tell us more about #{capitalize(user.first_name)} #{capitalize(user.last_name)}
-  form.form(action="/auth/"+user.id+"/profile" method="POST" enctype="multipart/form-data")
+  form.form(action="/users/#{user.id}" method="POST")
     
     fieldset
-      legend New user
+      legend Edit user
       include ../includes/form

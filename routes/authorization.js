@@ -7,6 +7,7 @@ var passconfig = require('../config/passport')
 var knex = require('../db/knex.js')
 var server = require('../serverlogic/serverlogic.js')
 var multer = require('multer');
+var db = require('../lib/db_user');
 var storage = multer.diskStorage({
   destination: function(req, file, callback) {
     callback(null, './public/img');
@@ -15,6 +16,7 @@ var storage = multer.diskStorage({
     callback(null, file.fieldname + '-' + Date.now());
   }
 });
+var capitalize = require('../lib/capitalize');
 
 
 function Sequences() {
@@ -138,14 +140,15 @@ router.post('/signup', function(req, res, next) {
 
 router.get('/:id/profile/edit', function(req, res, next) {
 
-  Users().select().where('id', req.params.id).first().then(function(results) {
-
+  db.getUser(req.params.id, function(){
     res.render('auth/profileinfo', {
       user: results,
+      capitalize: capitalize,
       styles: server.yogaStyles,
       states: server.states
     })
-  })
+  });
+
 });
 
 router.post('/:id/profile', function(req,res,next){
