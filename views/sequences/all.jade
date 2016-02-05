@@ -21,5 +21,6 @@ block content
             p= "Created By: "
             p= sequence.first_name + " " + sequence.last_name
           if user.exists
-            a() 
+            form(method='post' action='/users/' + user.id + '/favorites')
+              input(type='hidden' value= sequence.id name='sequence_id')
               button.small Favorite 
