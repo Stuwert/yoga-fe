@@ -22,6 +22,7 @@ var poses = require('./routes/poses')
 var api = require('./routes/api')
 var sequences = require('./routes/sequences')
 var favorites = require('./routes/favorites')
+var publicsequences = require('./routes/publicsequences')
 
 var app = express();
 
@@ -58,6 +59,7 @@ app.use('/users', users)
 app.use('/auth', authorization)
 app.use('/poses', poses)
 app.use('/api', api)
+app.use('/sequences', publicsequences)
 
 //Paths for users
 app.use('/users', users);

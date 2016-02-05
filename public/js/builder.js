@@ -12,7 +12,6 @@ if(sequence){
       newPose(result[0].id, result[0].pose_name, returnImage(result[0].pose_name), 'form.builder', time)
     })
   }
-
 }
 
 function getPose (id){
