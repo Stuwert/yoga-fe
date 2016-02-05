@@ -35,12 +35,13 @@ block content
         a.info_footer Edit
     div.favoriteSequences.box
       h3 Favorite Sequences
-      if user.favorites 
-        each sequence in user.favorites
+      if favorites 
+        each sequence in favorites
           div.saved
-            h4= sequence.creator
-        button
-          a(href='/sequences/all') All Sequences
+            div.header
+              h4
+                a(href='/sequences/' + sequence.user_sequence_id)= sequence.name
+            div.body
     div.personalSequences.box
       h3 My Sequences
       each sequence in sequences

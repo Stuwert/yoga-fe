@@ -13,6 +13,10 @@ function Users(){
   return knex('users');
 }
 
+function Favorites(){
+  return knex('user_favorites')
+}
+
 router.get('/:user_id', function(req, res, next){
   res.redirect('/users/' + req.params.user_id + '/profile');
 });
@@ -20,11 +24,14 @@ router.get('/:user_id', function(req, res, next){
 router.get('/:user_id/profile', function(req, res, next) {
   Users().where('id', req.params.user_id).first().then(function(user){
     Sequences().where('user_id', req.params.user_id).then(function(sequences){
-      console.log(sequences);
-      res.render('user/index', {
-        user: user,
-        sequences: sequences,
-        capitalize: capitalize
+      Favorites().where('user_favorites.user_id', req.params.user_id).leftJoin('user_sequences','user_favorites.user_sequence_id', 'user_sequences.id').then(function(favorites){
+        console.log(favorites);
+          res.render('user/index', {
+            user: user,
+            sequences: sequences,
+            capitalize: capitalize,
+            favorites: favorites
+          })
       })
     })
   });

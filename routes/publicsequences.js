@@ -19,10 +19,12 @@ router.get('/', function(req, res, next){
 router.get('/:id', function(req, res, next){
   db.returnUserSequence(req.params.id, function(usersequence){
     var id = req.isAuthenticated() ? req.user.id : null
+    var name = req.isAuthenticated() ? req.user.first_name + " " + req.user.last_name : null;
     if(usersequence.is_public){
       res.render('sequences/one', {usersequence: usersequence, user: {
         exists: req.isAuthenticated(),
         id: id,
+        name, name
         }
       });
     }else{
