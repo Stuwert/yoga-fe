@@ -64,6 +64,7 @@ $('button').click(function(){
     return +$(item).attr('id');
   })
   var sequenceName = $('#name').val();
+  console.log(sequenceName);
 
   var restOfCall = sequence ? "/" + usersequence_id : "/"
   $.post('/users/' + user_id + '/builder' + restOfCall, {

@@ -50,7 +50,7 @@ a {
   color: black; }
 
 button {
-  background-color: #8980F5; }
+  background-color: #11B6C3; }
 
 .selectbox {
   background-color: #CFBCDF; }
@@ -79,9 +79,6 @@ button a {
 
 .splash h1, .splash p {
   color: #11B6C3; }
-
-.user .userInfo {
-  background-color: #CFBCDF; }
 
 @font-face {
   font-family: 'Fontin';
@@ -131,6 +128,11 @@ button {
   border-radius: 15px;
   border: none;
   box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
+
+.small {
+  width: 75px;
+  height: 20px;
+  border-radius: 5px; }
 
 form.form {
   margin: 20px auto;
@@ -316,9 +318,23 @@ nav .sequence:first-of-type, nav .pose:first-of-type, nav .category:first-of-typ
     width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    text-align: right; }
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    position: relative; }
+    .user .userInfo .info em {
+      font-weight: 700;
+      font-size: 21px; }
+    .user .userInfo .info .bio {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      text-align: right; }
+    .user .userInfo .info .info_footer {
+      position: absolute;
+      bottom: 0;
+      right: 0; }
 
 .user .favoriteSequences {
   margin-left: 17.5%; }
@@ -344,6 +360,8 @@ nav .sequence:first-of-type, nav .pose:first-of-type, nav .category:first-of-typ
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .user .box .header, .user .box .body {
+    border: 1px solid black; }
 
 .splash {
   text-align: center;

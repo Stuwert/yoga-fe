@@ -10,3 +10,8 @@ button {
   border-radius: 15px;
   border: none;
   box-shadow: 5px 5px 2px 2px rgba(40, 40, 40, 0.55); }
+
+.small {
+  width: 75px;
+  height: 20px;
+  border-radius: 5px; }

@@ -19,9 +19,23 @@
     width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    text-align: right; }
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    position: relative; }
+    .user .userInfo .info em {
+      font-weight: 700;
+      font-size: 21px; }
+    .user .userInfo .info .bio {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      text-align: right; }
+    .user .userInfo .info .info_footer {
+      position: absolute;
+      bottom: 0;
+      right: 0; }
 
 .user .favoriteSequences {
   margin-left: 17.5%; }
@@ -47,3 +61,5 @@
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .user .box .header, .user .box .body {
+    border: 1px solid black; }
