@@ -61,7 +61,8 @@ router.post('/:user_id/builder/:usersequence_id', function(req, res, next){
   obj['id'] = req.params.usersequence_id;
   obj['user_id'] = req.params.user_id;
   obj['sequence_id'] = JSON.stringify(req.body['data[sequence][]']);
-  obj['timing'] = req.body['data[time][]'];
+  obj['timing'] = JSON.stringify(req.body['data[time][]']);
+  
 
   db.updateUserSequence(obj, function(results){
     res.redirect(req.params.user_id +'/builder/'+ req.params.usersequence_id);
