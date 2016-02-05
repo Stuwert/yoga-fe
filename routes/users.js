@@ -3,6 +3,7 @@ var router = express.Router();
 var knex = require('../db/knex');
 var passport = require('passport')
 var multer  =   require('multer');
+var capitalize = require('../lib/capitalize');
 
 function Sequences(){
   return knex('user_sequences');
@@ -22,7 +23,8 @@ router.get('/:user_id/profile', function(req, res, next) {
       console.log(sequences);
       res.render('user/index', {
         user: user,
-        sequences: sequences
+        sequences: sequences,
+        capitalize: capitalize
       })
     })
   });

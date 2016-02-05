@@ -6,7 +6,7 @@ block title
 block content
   header
 
-    h1= user.first_name + " "  + user.last_name + "'s Profile"
+    h1 #{capitalize(user.first_name)} #{capitalize(user.last_name)}'s Profile
     nav
       a(href='/auth/logout') Logout
 
