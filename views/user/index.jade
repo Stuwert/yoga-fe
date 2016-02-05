@@ -35,7 +35,9 @@ block content
       h4 My Sequences
       each sequence in sequences
         div.saved
-          h4= sequence.name
+          h4 #{sequence.name}
+          form(method="POST" action="/users/#{user.id}/builder/#{sequence.id}/delete" id="form_delete")
+            a(href='javascript:{}' onclick='document.getElementById("form_delete").submit();') Delete
           a(href='/users/#{user.id}/builder/#{sequence.id}') Edit
       a(href='/users/#{user.id}/builder/new'): button New Sequence
     
