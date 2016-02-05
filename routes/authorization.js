@@ -81,12 +81,9 @@ router.get('/facebook/callback',
     failureRedirect: '/'
   }),
   function(req, res, next) {
-    console.log("HITTERED*****", req.user)
-      // console.log('Facebook Name', user._json.name);
-      // console.log("Facebook Id", user._json.id);
-      // console.log("Facebook Picture", user._json.picture.data.url);
-      // console.log("Facebook Email", user._json.email);
-    res.redirect('/')
+    Users().select().where('fb_id', req.user.id).first().then(function(result){
+      res.redirect('/users/profile/'+result.id)
+    })
   });
 //  function(req,res,next){;
 //   res.redirect('/')

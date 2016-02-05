@@ -160,6 +160,11 @@ form.form {
   height: 35px;
   width: 160px; }
 
+#fileUpload {
+  border: none;
+  font-size: .8em;
+  margin-left: 25%; }
+
 .flex-column-center, form.form {
   display: flex;
   flex-direction: column;
