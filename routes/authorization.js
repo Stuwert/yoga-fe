@@ -15,6 +15,7 @@ var storage = multer.diskStorage({
     callback(null, file.fieldname + '-' + Date.now());
   }
 });
+var capitalize = require('../lib/capitalize');
 
 
 function Sequences() {
@@ -137,6 +138,7 @@ router.get('/:id/profile/edit', function(req, res, next) {
 
     res.render('auth/profileinfo', {
       user: results,
+      capitalize: capitalize,
       styles: server.yogaStyles,
       states: server.states
     })

@@ -4,6 +4,10 @@ var knex = require('../db/knex');
 var passport = require('passport')
 var multer  =   require('multer');
 var capitalize = require('../lib/capitalize');
+var db = require('../lib/db_user');
+var helper_data = require('../serverlogic/serverlogic');
+var states = helper_data.states;
+var styles = helper_data.yogaStyles;
 
 function Sequences(){
   return knex('user_sequences');
@@ -31,7 +35,14 @@ router.get('/:user_id/profile', function(req, res, next) {
 });
 
 router.get('/:user_id/profile/edit', function(req, res, next){
-  res.send('hello');
+  db.getUser(req.params.user_id, function(result){
+    res.render('user/edit',{
+      user: result,
+      states: states,
+      styles: styles,
+      capitalize: capitalize
+    });
+  });
 });
 
 

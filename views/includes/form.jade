@@ -1,0 +1,25 @@
+label(for="displayImage") Add profile picture
+input(type="file", name="displayImage" id="fileUpload")
+
+label(for="studio") Studio
+input(type="text" name="studio" value= (user.studio)?user.studio:undefined)
+
+label(for="city") City
+input(type="text" name="city" id="city" value= (user.city)?user.city:undefined)
+
+label(for="state") State
+Select(name="state" id="state")
+  if states
+    for state in states
+      option=state
+
+label(for="speciality") Speciality
+Select(name="speciality")
+  if styles
+    for style in styles
+      option=style
+
+label(for="bio" name="bio") Bio
+textarea(name="bio" id="bio")
+button
+  a Submit
