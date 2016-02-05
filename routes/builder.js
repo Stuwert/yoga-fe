@@ -7,6 +7,7 @@ var results = require('../tmp/results')
 var categories = require('../db/categories')
 var posecategories = require('../db/posecategories')
 
+
 /* GET new builder page. */
 router.get('/:user_id/builder/new', function(req, res, next) {
   res.render('builder', {
@@ -67,8 +68,11 @@ router.post('/:user_id/builder/:usersequence_id', function(req, res, next){
   })
 })
 
-function Sequences(){
-  return knex('sequences');
-}
+/* DELETE a sequence */
+router.post('/:user_id/builder/:usersequence_id/delete', function(req, res, next){
+  db.deleteUserSequence(req.params.usersequence_id, function(result){
+    res.redirect('/users/' + req.params.user_id);
+  });
+});
 
 module.exports = router;

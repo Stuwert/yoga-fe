@@ -17,12 +17,14 @@ block content
       else 
         img(src=user.image)
       div.info
+        h4 My Profile
         p= "Location: " + user.city + ', ' + user.state
         ul
           li Specialities:
           if user.speciality
             li= user.speciality
         p= "Bio: " + user.bio
+        .info_footer Edit
     div.favoriteSequences.box
       h4 Favorite Sequences
       if user.favorites 
@@ -35,7 +37,9 @@ block content
       h4 My Sequences
       each sequence in sequences
         div.saved
-          h4= sequence.name
+          h4 #{sequence.name}
+          form(method="POST" action="/users/#{user.id}/builder/#{sequence.id}/delete" id="form_delete")
+            a(href='javascript:{}' onclick='document.getElementById("form_delete").submit();') Delete
           a(href='/users/#{user.id}/builder/#{sequence.id}') Edit
       a(href='/users/#{user.id}/builder/new'): button New Sequence
     
