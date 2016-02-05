@@ -19,16 +19,21 @@ block content
       else 
         img(src=user.image)
       div.info
-        h4 My Profile
-        p= "Location: " + user.city + ', ' + user.state
-        ul
-          li Specialities:
-          if user.speciality
-            li= user.speciality
-        p= "Bio: " + user.bio
-        .info_footer Edit
+        div.studio
+          h4 
+            em Studio:
+          p= user.studio
+        div.speciality
+          h4 
+            em Speciality:
+          p= user.speciality
+        div.bio
+          h4 
+            em Bio:
+          p= user.bio
+        a.info_footer Edit
     div.favoriteSequences.box
-      h4 Favorite Sequences
+      h3 Favorite Sequences
       if user.favorites 
         each sequence in user.favorites
           div.saved
@@ -36,12 +41,16 @@ block content
         button
           a(href='/sequences/all') All Sequences
     div.personalSequences.box
-      h4 My Sequences
+      h3 My Sequences
       each sequence in sequences
         div.saved
-          h4 #{sequence.name}
-          form(method="POST" action="/users/#{user.id}/builder/#{sequence.id}/delete" id="form_delete")
-            a(href='javascript:{}' onclick='document.getElementById("form_delete").submit();') Delete
-          a(href='/users/#{user.id}/builder/#{sequence.id}') Edit
+          div.header
+            h4 #{sequence.name}
+          div.body
+            form(method="POST" action="/users/#{user.id}/builder/#{sequence.id}/delete" id="form_delete")
+              a(href='javascript:{}' onclick='document.getElementById("form_delete").submit();') 
+                button.small Delete
+            a(href='/users/#{user.id}/builder/#{sequence.id}')
+              button.small  Edit
       a(href='/users/#{user.id}/builder/new'): button New Sequence
     

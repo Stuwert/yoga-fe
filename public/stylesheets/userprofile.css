@@ -19,9 +19,23 @@
     width: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    text-align: right; }
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+    position: relative; }
+    .user .userInfo .info em {
+      font-weight: 700;
+      font-size: 21px; }
+    .user .userInfo .info .bio {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      text-align: right; }
+    .user .userInfo .info .info_footer {
+      position: absolute;
+      bottom: 0;
+      right: 0; }
 
 .user .favoriteSequences {
   margin-left: 17.5%; }
@@ -35,10 +49,17 @@
   border-radius: 15px;
   margin: 20px 0;
   position: relative; }
-  .user .saved a {
-    position: absolute;
-    bottom: 10px;
-    right: 10px; }
+  .user .saved .body {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 80px; }
+  .user .saved .header {
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px; }
+  .user .saved .body {
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px; }
 
 .user .box {
   margin-top: 20px;
