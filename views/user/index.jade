@@ -31,7 +31,7 @@ block content
           h4 
             em Bio:
           p= user.bio
-        a.info_footer Edit
+        a.info_footer #[a(href="/users/#{user.id}/profile/edit") Edit]
     div.favoriteSequences.box
       h3 Favorite Sequences
       if user.favorites 

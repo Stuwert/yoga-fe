@@ -30,5 +30,9 @@ router.get('/:user_id/profile', function(req, res, next) {
   });
 });
 
+router.get('/:user_id/profile/edit', function(req, res, next){
+  res.send('hello');
+});
+
 
 module.exports = router;
