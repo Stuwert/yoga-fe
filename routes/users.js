@@ -5,9 +5,8 @@ var passport = require('passport')
 var multer  =   require('multer');
 var capitalize = require('../lib/capitalize');
 var db = require('../lib/db_user');
-var helper_data = require('../serverlogic/serverlogic');
-var states = helper_data.states;
-var styles = helper_data.yogaStyles;
+var states = require('../lib/states');
+var styles = require('../lib/styles');;
 
 function Sequences(){
   return knex('user_sequences');

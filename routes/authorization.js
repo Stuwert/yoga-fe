@@ -5,7 +5,8 @@ var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy;
 var passconfig = require('../config/passport')
 var knex = require('../db/knex.js')
-var server = require('../serverlogic/serverlogic.js')
+var states = require('../lib/states');
+var styles = require('../lib/styles');
 var multer = require('multer');
 var db = require('../lib/db_user');
 var storage = multer.diskStorage({
@@ -144,8 +145,8 @@ router.get('/:id/profile/edit', function(req, res, next) {
     res.render('auth/profileinfo', {
       user: results,
       capitalize: capitalize,
-      styles: server.yogaStyles,
-      states: server.states
+      styles: styles,
+      states: states
     })
   });
 
