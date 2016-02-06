@@ -139,19 +139,6 @@ router.post('/signup', function(req, res, next) {
   });
 })
 
-router.get('/:id/profile/edit', function(req, res, next) {
-
-  db.getUser(req.params.id, function(){
-    res.render('auth/profileinfo', {
-      user: results,
-      capitalize: capitalize,
-      styles: styles,
-      states: states
-    })
-  });
-
-});
-
 router.post('/:id/profile', function(req,res,next){
   var upload = multer({storage: storage}).single('displayImage');
   upload(req,res,function(err) {
